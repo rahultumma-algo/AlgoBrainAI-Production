@@ -1,0 +1,2036 @@
+{
+  "products": [
+    {
+      "id": "prod-012", 
+      "product_type": "AI Services",
+      "product_name": "Image Generation and Mockup",
+      "demo_available": true,
+      "demo_filename": "image-generation-mockup", 
+      "color": "#729b9f",
+      "slug": "image-generation-mockup",
+      "slogan": "Generate and Customize Images with AI Precision",
+      "description": "Transform your ideas into stunning visuals with our AI-powered Image Generation and Mockup service. Generate images from text prompts, mark specific parts of the image, and customize them with detailed prompts for tailored results.",
+      "key_services": [
+        {
+          "icon": "/src/assets/Highly-Customizable-UI-through-Excel-Integration.svg",
+          "title": "Text-to-Image Generation",
+          "description": "Create high-quality images from textual descriptions effortlessly."
+        },
+        {
+          "icon": "/src/assets/Personalized-Catalog-Creation.svg",
+          "title": "Customizable Mockups", 
+          "description": "Mark parts of the generated image and customize them with specific prompts."
+        }
+      ],
+      "title_media": {
+        "title": "/src/assets/image-generation.png",
+        "media_type": "image"
+      },
+      "optional_media": [],
+      "additional_info": {
+        "features": [
+          {
+            "image": "/src/assets/User-Friendly-Interface.svg",
+            "title": "High-Quality Image Output",
+            "description": "Generate images with exceptional quality and detail."
+          },
+          {
+            "image": "/src/assets/Efficient-Communication.svg", 
+            "title": "Interactive Editing",
+            "description": "Easily mark and edit specific parts of the image for customization."
+          },
+          {
+            "image": "/src/assets/Tailored-FAQs.svg",
+            "title": "Real-Time Feedback",
+            "description": "Receive instant feedback on your image modifications."
+          }
+        ],
+        "use_cases": [
+          {
+            "category": "Design",
+            "subcategories": [
+              {
+                "name": "Marketing Materials",
+                "description": "Create stunning visuals for marketing campaigns."
+              },
+              {
+                "name": "Product Mockups",
+                "description": "Generate realistic product mockups for presentations."
+              }
+            ]
+          }
+        ],
+        "pricing_plans": [
+          {
+            "name": "Basic Plan",
+            "description": "Starter plan for individuals and small teams",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "1,500",
+                "discount": "10"
+              }
+            ],
+            "features": [
+              "Basic Image Generation",
+              "Limited Customization Options"
+            ],
+            "most_valuable": true
+          },
+          {
+            "name": "Pro Plan", 
+            "description": "Advanced plan for professionals",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "3,000",
+                "discount": "15"
+              }
+            ],
+            "features": [
+              "Advanced Image Generation",
+              "Full Customization Options",
+              "Priority Support"
+            ],
+            "most_valuable": false
+          }
+        ],
+        "technical_specs": [
+          {
+            "image": "/src/assets/Data-Security.png",
+            "title": "AI Technology",
+            "description": "Utilizes cutting-edge AI algorithms for image generation."
+          }
+        ],
+        "contact_info": {
+          "email": "contact@algobrainai.com",
+          "phone": "+91 9313192028",
+          "website": "www.algobrainai.com/"
+        }
+      }
+    },
+    {
+      "id": "prod-001",
+      "product_type": "AI Services",
+      "product_name": "Face Verification",
+      "demo_available": true,
+      "demo_filename": "face-verification",
+      "color": "#5f0707",
+      "slug": "face-verification",
+      "slogan": "Advanced Face Verification for Enhanced Security",
+      "description": "Implement robust face verification with our cutting-edge AI solution. Our system offers highly accurate facial recognition, real-time verification capabilities, and seamless integration options for enhanced security across various applications.",
+      "key_services": [
+        {
+          "icon": "/src/assets/Highly-Customizable-UI-through-Excel-Integration.svg",
+          "title": "Advanced Face Recognition",
+          "description": "Utilize state-of-the-art facial recognition technology for accurate verification."
+        },
+        {
+          "icon": "/src/assets/Personalized-Catalog-Creation.svg",
+          "title": "Real-time Processing",
+          "description": "Process and verify facial data in real-time for immediate results."
+        }
+      ],
+      "title_media": {
+        "title": "/src/assets/Face-Verification.png",
+        "media_type": "image"
+      },
+      "optional_media": [
+        
+      ],
+      "additional_info": {
+        "features": [
+          {
+            "image": "/src/assets/User-Friendly-Interface.svg",
+            "title": "User-Friendly Interface",
+            "description": "Create a seamless and user-friendly experience with a highly customizable UI."
+          },
+          {
+            "image": "/src/assets/Efficient-Communication.svg",
+            "title": "Efficient Processing",
+            "description": "Utilize advanced algorithms for efficient and accurate face verification."
+          },
+          {
+            "image": "/src/assets/Tailored-FAQs.svg",
+            "title": "Customizable Settings",
+            "description": "Adjust verification parameters to meet specific security requirements."
+          },
+          {
+            "image": "/src/assets/Seamless-Button-Customization.svg",
+            "title": "Integration Options",
+            "description": "Seamlessly integrate face verification into existing systems."
+          },
+          {
+            "image": "/src/assets/Customizable-Service.svg",
+            "title": "Scalable Solution",
+            "description": "Scale the verification system according to your needs."
+          }
+        ],
+        "use_cases": [
+          {
+            "category": "Security",
+            "subcategories": [
+              {
+                "name": "Access Control",
+                "description": "Secure physical and digital access points with face verification."
+              },
+              {
+                "name": "Identity Verification",
+                "description": "Verify user identities accurately and efficiently."
+              },
+              {
+                "name": "Fraud Prevention",
+                "description": "Prevent unauthorized access and identity theft."
+              }
+            ]
+          }
+        ],
+        "pricing_plans": [
+          {
+            "name": "Basic Plan",
+            "description": "Affordable plan tailored for startups",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "2,500",
+                "discount": "20"
+              }
+            ],
+            "features": [
+              "Basic Face Verification",
+              "Standard Processing Speed",
+              "Basic Integration Support"
+            ],
+            "most_valuable": true
+          }
+        ],
+        "technical_specs": [
+          {
+            "image": "/src/assets/Security.svg",
+            "title": "Security",
+            "description": "Advanced encryption and security measures for facial data protection."
+          },
+          {
+            "image": "/src/assets/Integrity.svg",
+            "title": "Accuracy",
+            "description": "High accuracy rates in facial verification and matching."
+          }
+        ],
+        "contact_info": {
+          "email": "contact@algobrainai.com",
+          "phone": "+91 9313192028",
+          "website": "www.algobrainai.com/"
+        }
+      }
+    },
+    {
+      "id": "prod-002",
+      "product_type": "AI Services", 
+      "product_name": "Emotion Detection",
+      "demo_available": true,
+      "demo_filename": "emotion-detection",
+      "color": "#1b1c66",
+      "slug": "face-detection",
+      "slogan": "Powerful Face Detection for Smart Applications",
+      "description": "Enhance your applications with our advanced face detection system. Our solution offers real-time face detection, multi-face tracking capabilities, and precise facial feature analysis for diverse use cases.",
+      "key_services": [
+        {
+          "icon": "/src/assets/Highly-Customizable-UI-through-Excel-Integration.svg",
+          "title": "Real-time Detection",
+          "description": "Detect and locate faces in real-time with high accuracy."
+        },
+        {
+          "icon": "/src/assets/Personalized-Catalog-Creation.svg",
+          "title": "Multi-face Detection",
+          "description": "Detect and track multiple faces simultaneously in images or video."
+        }
+      ],
+      "title_media": {
+        "title": "/src/assets/Emotion-Detection.png",
+        "media_type": "image"
+      },
+      "optional_media": [
+  
+      ],
+      "additional_info": {
+        "features": [
+          {
+            "image": "/src/assets/User-Friendly-Interface.svg",
+            "title": "Advanced Detection",
+            "description": "Utilize cutting-edge algorithms for precise face detection."
+          },
+          {
+            "image": "/src/assets/Efficient-Communication.svg",
+            "title": "Feature Analysis",
+            "description": "Analyze facial features and attributes with high precision."
+          },
+          {
+            "image": "/src/assets/Tailored-FAQs.svg",
+            "title": "Customizable Parameters",
+            "description": "Adjust detection settings to match specific requirements."
+          },
+          {
+            "image": "/src/assets/Seamless-Button-Customization.svg",
+            "title": "Easy Integration",
+            "description": "Seamlessly integrate face detection into your applications."
+          },
+          {
+            "image": "/src/assets/Customizable-Service.svg",
+            "title": "Scalable System",
+            "description": "Scale the detection system based on your needs."
+          }
+        ],
+        "use_cases": [
+          {
+            "category": "Applications",
+            "subcategories": [
+              {
+                "name": "Security Systems",
+                "description": "Enhance security systems with face detection capabilities."
+              },
+              {
+                "name": "Photo Applications",
+                "description": "Improve photo organization and management."
+              },
+              {
+                "name": "Video Analytics",
+                "description": "Enable face detection in video streams and recordings."
+              }
+            ]
+          }
+        ],
+        "pricing_plans": [
+          {
+            "name": "Basic Plan",
+            "description": "Perfect for getting started with face detection",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "2,000",
+                "discount": "15"
+              }
+            ],
+            "features": [
+              "Basic Face Detection",
+              "Standard Processing Speed",
+              "Basic Integration Support"
+            ],
+            "most_valuable": true
+          }
+        ],
+        "technical_specs": [
+          {
+            "image": "/src/assets/Security.svg",
+            "title": "Performance",
+            "description": "Fast and efficient face detection processing."
+          },
+          {
+            "image": "/src/assets/Integrity.svg",
+            "title": "Accuracy",
+            "description": "High detection rates across various conditions."
+          }
+        ],
+        "contact_info": {
+          "email": "contact@algobrainai.com",
+          "phone": "+91 9313192028",
+          "website": "www.algobrainai.com/"
+        }
+      }
+    },
+    {
+      "id": "prod-003",
+      "product_type": "AI Services",
+      "product_name": "Object Detection",
+      "demo_available": true,
+      "demo_filename": "object-detection", 
+      "color": "#0e3f68",
+      "slug": "object-detection",
+      "slogan": "Advanced Object Detection for Smart Applications",
+      "description": "Empower your applications with our state-of-the-art object detection system. Featuring real-time detection capabilities, multi-object tracking, and precise classification, our solution delivers robust object detection across diverse scenarios.",
+      "key_services": [
+        {
+          "icon": "/src/assets/Highly-Customizable-UI-through-Excel-Integration.svg",
+          "title": "Real-time Detection",
+          "description": "Detect and track objects in real-time with high precision."
+        },
+        {
+          "icon": "/src/assets/Personalized-Catalog-Creation.svg",
+          "title": "Multi-object Tracking",
+          "description": "Track multiple objects simultaneously in complex environments."
+        }
+      ],
+      "title_media": {
+        "title": "/src/assets/object-detection.png",
+        "media_type": "image"
+      },
+      "optional_media": [
+      
+      ],
+      "additional_info": {
+        "features": [
+          {
+            "image": "/src/assets/User-Friendly-Interface.svg",
+            "title": "Advanced Detection",
+            "description": "Leverage state-of-the-art algorithms for accurate object detection."
+          },
+          {
+            "image": "/src/assets/Efficient-Communication.svg",
+            "title": "Object Classification",
+            "description": "Classify detected objects with high accuracy and confidence."
+          },
+          {
+            "image": "/src/assets/Tailored-FAQs.svg",
+            "title": "Flexible Integration",
+            "description": "Seamlessly integrate with existing systems and workflows."
+          },
+          {
+            "image": "/src/assets/Seamless-Button-Customization.svg",
+            "title": "Performance Optimization",
+            "description": "Optimized processing for various hardware configurations."
+          },
+          {
+            "image": "/src/assets/Customizable-Service.svg",
+            "title": "Customizable Parameters",
+            "description": "Fine-tune detection parameters for specific use cases."
+          }
+        ],
+        "use_cases": [
+          {
+            "category": "Applications",
+            "subcategories": [
+              {
+                "name": "Surveillance Systems",
+                "description": "Monitor and detect objects in security applications."
+              },
+              {
+                "name": "Industrial Automation",
+                "description": "Automate quality control and object tracking in manufacturing."
+              },
+              {
+                "name": "Retail Analytics",
+                "description": "Track products and analyze customer behavior in retail."
+              }
+            ]
+          }
+        ],
+        "pricing_plans": [
+          {
+            "name": "Basic Plan",
+            "description": "Affordable plan tailored for startups",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "2,500",
+                "discount": "20"
+              }
+            ],
+            "features": [
+              "Basic Object Detection",
+              "Standard Processing Speed",
+              "Basic Integration Support"
+            ],
+            "most_valuable": true
+          }
+        ],
+        "technical_specs": [
+          {
+            "image": "/src/assets/Security.svg",
+            "title": "Performance",
+            "description": "High-speed object detection with optimized processing capabilities."
+          },
+          {
+            "image": "/src/assets/Integrity.svg",
+            "title": "Accuracy",
+            "description": "Precise object detection and classification across various conditions."
+          }
+        ],
+        "contact_info": {
+          "email": "contact@algobrainai.com",
+          "phone": "+91 9313192028",
+          "website": "www.algobrainai.com/"
+        }
+      }
+    },
+    {
+      "id": "prod-004",
+      "product_type": "AI Chatbots",
+      "product_name": "Website Chat Bot",
+      "color": "#172554", 
+      "slug": "website-chat-bot",
+      "slogan": "Unleash Your Website's Potential with an AI-Driven Chatbot",
+      "description": "Enhance your online presence and customer engagement with our AI-powered Website Chat Bot. Our chatbot offers a highly customizable user interface through Excel integration, a personalized product catalog, advanced Natural Language Processing (NLP), and customizable FAQs and buttons for a seamless user experience.",
+      "key_services": [
+        {
+          "icon": "/src/assets/Highly-Customizable-UI-through-Excel-Integration.svg",
+          "title": "Highly Customizable UI through Excel Integration",
+          "description": "Easily tailor the user interface of your website chatbot using Excel integration."
+        },
+        {
+          "icon": "/src/assets/Personalized-Catalog-Creation.svg",
+          "title": "Personalized Catalog Creation", 
+          "description": "Create a personalized product or service catalog effortlessly with Excel integration."
+        }
+      ],
+      "title_media": {
+        "title": "/src/assets/website-chatbot.gif",
+        "media_type": "image"
+      },
+      "optional_media": [
+        {
+          "title": "/src/assets/website-chatbot-2.png",
+          "media_type": "image"
+        }
+      ],
+      "additional_info": {
+        "features": [
+          {
+            "image": "/src/assets/User-Friendly-Interface.svg",
+            "title": "User-Friendly Interface",
+            "description": "Create a seamless and user-friendly experience with a highly customizable UI."
+          },
+          {
+            "image": "/src/assets/Efficient-Communication.svg",
+            "title": "Efficient Communication",
+            "description": "Utilize advanced Natural Language Processing for efficient and effective communication."
+          },
+          {
+            "image": "/src/assets/Tailored-FAQs.svg",
+            "title": "Tailored FAQs",
+            "description": "Offer tailored FAQs to address specific queries and provide personalized answers."
+          },
+          {
+            "image": "/src/assets/Seamless-Button-Customization.svg",
+            "title": "Seamless Button Customization",
+            "description": "Customize buttons effortlessly using Excel for a seamless user interaction."
+          },
+          {
+            "image": "/src/assets/Customizable-Service.svg",
+            "title": "Customizable Service",
+            "description": "Tailor your services according to your business requirements."
+          }
+        ],
+        "use_cases": [
+          {
+            "category": "Customer Support",
+            "subcategories": [
+              {
+                "name": "General Inquiries Handling",
+                "description": "Assist users with general questions and inquiries efficiently."
+              },
+              {
+                "name": "Complaint Resolution",
+                "description": "Address and resolve customer complaints promptly and effectively."
+              },
+              {
+                "name": "Product Information",
+                "description": "Provide detailed information about products or services in real-time."
+              }
+            ]
+          },
+          {
+            "category": "Sales",
+            "subcategories": [
+              {
+                "name": "Lead Generation",
+                "description": "Identify and attract potential customers seamlessly."
+              },
+              {
+                "name": "Product Recommendations",
+                "description": "Suggest relevant products based on user preferences accurately."
+              },
+              {
+                "name": "Order Processing",
+                "description": "Facilitate smooth processing of orders and transactions for improved sales."
+              }
+            ]
+          },
+          {
+            "category": "Marketing",
+            "subcategories": [
+              {
+                "name": "Promotions and Offers",
+                "description": "Create and manage promotional campaigns and offers effectively."
+              },
+              {
+                "name": "Feedback Collection",
+                "description": "Gather valuable feedback from customers to enhance products or services."
+              },
+              {
+                "name": "Market Research",
+                "description": "Conduct comprehensive research to understand market trends and preferences."
+              }
+            ]
+          }
+        ],
+        "pricing_plans": [
+          {
+            "name": "Basic Plan",
+            "description": "Affordable plan tailored for startups",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "2,500",
+                "discount": "20"
+              }
+            ],
+            "features": [
+              "3-Levels of Flow",
+              "Button-Oriented Flow",
+              "Conversation Flow"
+            ],
+            "most_valuable": true
+          },
+          {
+            "name": "Pro Plan",
+            "description": "Ideal plan for growing businesses",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "2,500",
+                "discount": "20"
+              }
+            ],
+            "features": [
+              "4-Levels of Flow",
+              "Button-Oriented Flow", 
+              "NLP Support",
+              "Customizable Button through Excel Sheets",
+              "Conversation Flow"
+            ],
+            "most_valuable": false
+          },
+          {
+            "name": "Enterprise Plan",
+            "description": "Tailored plan for large enterprises",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "2,500",
+                "discount": "20"
+              }
+            ],
+            "features": [
+              "5-Levels of Flow",
+              "Customizable UI through Excel",
+              "Button-Oriented Flow",
+              "Customizable Catalogue through Excel Sheet",
+              "NLP Support",
+              "Customizable FAQ's Answers",
+              "Conversation Flow",
+              "Customizable Button through Excel Sheet"
+            ],
+            "most_valuable": false
+          },
+          {
+            "name": "One Time Development",
+            "description": "Tailored plan for large enterprises",
+            "durations": [
+              {
+                "type": "Custom",
+                "price": "2,500",
+                "discount": "20"
+              }
+            ],
+            "features": [
+              "Customizable UI through Excel",
+              "Button-Oriented Flow",
+              "Customizable Catalogue through Excel Sheet", 
+              "NLP Support",
+              "Customizable FAQ's Answers",
+              "Conversation Flow",
+              "Customizable Button through Excel Sheet"
+            ],
+            "most_valuable": false
+          }
+        ],
+        "technical_specs": [
+          {
+            "image": "/src/assets/Security.svg",
+            "title": "Security",
+            "description": "Ensure compliance with data protection regulations and implement advanced security measures for safeguarding user data."
+          },
+          {
+            "image": "/src/assets/Integrity.svg",
+            "title": "Integrity",
+            "description": "Guarantee data integrity and confidentiality to maintain trust and reliability in data handling."
+          }
+        ],
+        "faqs": [
+          {
+            "question": "Is the Chatbot customizable?",
+            "answer": "Absolutely! Our Chatbot offers extensive customization options, allowing you full control over its behavior and appearance to align with your brand identity."
+          },
+          {
+            "question": "What makes ALGOBRAIN AI's Chatbot cost-effective?",
+            "answer": "Our Chatbot's pricing plans cater to businesses of all sizes, ensuring affordability while providing valuable features tailored for startups, growing businesses, and large enterprises."
+          }
+        ],
+        "contact_info": {
+          "email": "contact@algobrainai.com",
+          "phone": "+91 9313192028",
+          "website": "www.algobrainai.com/"
+        }
+      }
+    },
+    {
+      "id": "prod-005",
+      "product_type": "AI Chatbots",
+      "product_name": "WhatsApp Chat Bot",
+      "color": "#105D58",
+      "slug": "whatsapp-chat-bot",
+      "slogan": "Meet Our WhatsApp Bot - Your Affordable Automation Solution",
+      "description": "Empower your business with our cost-effective WhatsApp Chat Bot. Experience low development costs while enjoying call-free efficiency and versatile task handling for any business.",
+      "key_services": [
+        {
+          "icon": "/src/assets/Affordable-Automation.svg",
+          "title": "Affordable Automation",
+          "description": "Our bot is cost-effective, offering low development costs."
+        },
+        {
+          "icon": "/src/assets/Call-Free-Efficiency.svg",
+          "title": "Call-Free Efficiency",
+          "description": "Seamlessly manage tasks without overwhelming calls."
+        },
+        {
+          "icon": "/src/assets/Versatile-Task-Handling.svg",
+          "title": "Versatile Task Handling",
+          "description": "Efficiently handles various tasks for any business."
+        }
+      ],
+      "title_media": {
+        "title": "/src/assets/WhatsApp_Chatbot.gif",
+        "media_type": "image"
+      },
+      "optional_media": [
+        {
+          "title": "/src/assets/WhatsApp-Chatbot-2.webp",
+          "media_type": "image"
+        }
+      ],
+      "additional_info": {
+        "features": [
+          {
+            "image": "/src/assets/24_7-Availability.svg",
+            "title": "24/7 Availability",
+            "description": "Your personal WhatsApp assistant available round the clock."
+          },
+          {
+            "image": "/src/assets/Instant-Responses.svg",
+            "title": "Instant Responses",
+            "description": "Get quick and efficient responses to all your inquiries."
+          },
+          {
+            "image": "/src/assets/Personalized-Assistance.svg",
+            "title": "Personalized Assistance",
+            "description": "Receive tailored support to meet your specific needs."
+          },
+          {
+            "image": "/src/assets/Interactive-Conversations.svg",
+            "title": "Interactive Conversations",
+            "description": "Engage in interactive and meaningful conversations."
+          }
+        ],
+        "use_cases": [
+          {
+            "category": "Customer Support",
+            "subcategories": [
+              {
+                "name": "General Inquiries Handling",
+                "description": "Assist users with general questions and inquiries."
+              },
+              {
+                "name": "Complaint Resolution",
+                "description": "Address and resolve customer complaints effectively."
+              },
+              {
+                "name": "Product Information",
+                "description": "Provide detailed information about products or services."
+              }
+            ]
+          },
+          {
+            "category": "Sales",
+            "subcategories": [
+              {
+                "name": "Lead Generation",
+                "description": "Identify and attract potential customers."
+              },
+              {
+                "name": "Product Recommendations",
+                "description": "Suggest relevant products based on user preferences."
+              },
+              {
+                "name": "Order Processing",
+                "description": "Facilitate smooth processing of orders and transactions."
+              }
+            ]
+          },
+          {
+            "category": "Marketing",
+            "subcategories": [
+              {
+                "name": "Promotions and Offers",
+                "description": "Create and manage promotional campaigns and offers."
+              },
+              {
+                "name": "Feedback Collection",
+                "description": "Gather feedback from customers to improve products or services."
+              },
+              {
+                "name": "Market Research",
+                "description": "Conduct research to understand market trends and preferences."
+              }
+            ]
+          }
+        ],
+        "pricing_plans": [
+          {
+            "name": "Basic Plan",
+            "description": "Affordable plan tailored for startups",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "2,500",
+                "discount": "20"
+              }
+            ],
+            "features": [
+              "3-Levels of Flow",
+              "2-Buttons Oriented Flow",
+              "Mail/Message"
+            ],
+            "most_valuable": true
+          },
+          {
+            "name": "Pro Plan",
+            "description": "Ideal plan for growing businesses",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "2,500",
+                "discount": "20"
+              }
+            ],
+            "features": [
+              "4-Levels of Flow",
+              "3-Buttons Oriented Flow",
+              "Payment Gateway",
+              "Mail/Message",
+              "NLP Support",
+              "Calendar Integration"
+            ],
+            "most_valuable": false
+          },
+          {
+            "name": "Enterprise Plan",
+            "description": "Tailored plan for large enterprises",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "2,500",
+                "discount": "20"
+              }
+            ],
+            "features": [
+              "5-Levels of Flow",
+              "3-Buttons Oriented Flow",
+              "Payment Gateway",
+              "Confirm Messages",
+              "Mail/Message",
+              "NLP Support",
+              "GPT Integration",
+              "Calendar Integration",
+              "Admin Panel",
+              "What's App UI",
+              "Bulk Messaging"
+            ],
+            "most_valuable": false
+          },
+          {
+            "name": "One Time Development",
+            "description": "Tailored plan for large enterprises",
+            "durations": [
+              {
+                "type": "Custom",
+                "price": "2,500",
+                "discount": "20"
+              }
+            ],
+            "features": [
+              "Customizable Templates",
+              "Button-Oriented Flow",
+              "Payment Gateway",
+              "Confirm Messages",
+              "Mail/Message",
+              "NLP Support",
+              "GPT Integration",
+              "Calendar Integration",
+              "Admin Panel",
+              "What's App UI",
+              "Bulk Messaging"
+            ],
+            "most_valuable": false
+          }
+        ],
+        "technical_specs": [
+          {
+            "image": "/src/assets/Security.svg",
+            "title": "Security",
+            "description": "Compliance with GDPR and data protection regulations."
+          },
+          {
+            "image": "/src/assets/Integrity.svg",
+            "title": "Integrity",
+            "description": "Ensures data integrity and confidentiality."
+          }
+        ],
+        "faqs": [
+          {
+            "question": "Can it handle multiple languages?",
+            "answer": "Yes, our WhatsApp Chat Bot supports multiple languages for enhanced global communication."
+          },
+          {
+            "question": "Is it customizable?",
+            "answer": "Absolutely! You have full control over customizing the chatbot's behavior and appearance to align with your brand identity."
+          }
+        ],
+        "contact_info": {
+          "email": "contact@algobrainai.com",
+          "phone": "+91 9313192028",
+          "website": "www.algobrainai.com/"
+        }
+      }
+    },
+    {
+      "id": "prod-006",
+      "product_type": "AI Website",
+      "product_name": "AlgoTravels Website",
+      "color": "#FF5757",
+      "slug": "algo-travels-platform",
+      "slogan": "Streamline Travel and Vehicle Operations with algoTravels",
+      "description": "algoTravels offers a comprehensive platform for efficiently managing travel and vehicle operations, optimizing fleet management, driver assignments, trip scheduling, and route planning.",
+      "key_services": [
+        {
+          "icon": "/src/assets/Booking-Management.png",
+          "title": "Booking Management",
+          "description": "Effortlessly track and manage bookings, including maintenance schedules, availability, and utilization, for streamlined operations."
+        },
+        {
+          "icon": "/src/assets/Real-Time-Communication-Integration.png",
+          "title": "Real-Time Communication Integration",
+          "description": "Seamlessly integrate WhatsApp updates for clients and drivers, ensuring smooth and efficient communication throughout the travel process."
+        }
+      ],
+      "title_media": {
+        "title": "/src/assets/AlgoTravels-Poster.png",
+        "media_type": "image"
+      },
+      "additional_info": {
+        "features": [
+          {
+            "image": "/src/assets/Trip-Management.png",
+            "title": "Trip Management",
+            "description": "Efficiently plan, schedule, and monitor trips, with features for booking management and real-time updates, ensuring seamless travel experiences."
+          },
+          {
+            "image": "/src/assets/Route-Management.png",
+            "title": "Route Management",
+            "description": "Optimize routes for efficiency and safety, with features for mapping, navigation, and route tracking, enhancing overall operational performance."
+          },
+          {
+            "image": "/src/assets/24_7-Chat-bot.png",
+            "title": "24/7 Chat-bot Support",
+            "description": "Access round-the-clock chat-bot support for assistance and troubleshooting, ensuring uninterrupted service and customer satisfaction."
+          }
+        ],
+        "use_cases": [
+          {
+            "category": "Transportation Companies",
+            "subcategories": [
+              {
+                "name": "Fleet Management",
+                "description": "Effectively manage fleets, drivers, and trips to optimize operations and ensure customer satisfaction."
+              },
+              {
+                "name": "Driver Tracking",
+                "description": "Track driver locations and performance in real-time, ensuring efficient fleet management and timely service delivery."
+              },
+              {
+                "name": "Route Optimization",
+                "description": "Optimize routes based on real-time traffic data and historical patterns, reducing fuel consumption and enhancing efficiency."
+              }
+            ]
+          },
+          {
+            "category": "Travel Agencies",
+            "subcategories": [
+              {
+                "name": "Trip Planning",
+                "description": "Streamline trip planning, booking, and coordination processes for a seamless customer experience."
+              },
+              {
+                "name": "Itinerary Customization",
+                "description": "Customize travel itineraries based on customer preferences and requirements, ensuring personalized experiences."
+              },
+              {
+                "name": "Customer Feedback Management",
+                "description": "Collect and analyze customer feedback to improve service quality and enhance customer satisfaction levels."
+              }
+            ]
+          },
+          {
+            "category": "Corporate Transport Departments",
+            "subcategories": [
+              {
+                "name": "Employee Transportation",
+                "description": "Efficiently manage employee transportation, ensuring reliability and cost-effectiveness for corporate operations."
+              },
+              {
+                "name": "Shuttle Service Optimization",
+                "description": "Optimize shuttle schedules and routes to minimize wait times and enhance convenience for employees."
+              },
+              {
+                "name": "Expense Tracking",
+                "description": "Track transportation expenses and allocate costs accurately, ensuring transparency and compliance with budgetary constraints."
+              }
+            ]
+          }
+        ],
+        "pricing_plans": [
+          {
+            "name": "Basic Plan",
+            "description": "Starter plan for small businesses",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "30,000",
+                "discount": "10%"
+              }
+            ],
+            "features": [
+              "Vehicle Management",
+              "Driver Management",
+              "Booking Management"
+            ],
+            "most_valuable": false
+          },
+          {
+            "name": "Pro Plan",
+            "description": "Advanced plan for growing businesses",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "50,000",
+                "discount": "15%"
+              }
+            ],
+            "features": [
+              "Trip Management",
+              "Route Management",
+              "24/7 Chat-Bot Support",
+              "Customizable Reporting"
+            ],
+            "most_valuable": true
+          },
+          {
+            "name": "Enterprise Plan",
+            "description": "Tailored plan for large enterprises",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "75,000",
+                "discount": "10%"
+              }
+            ],
+            "features": [
+              "Custom Integration",
+              "Dedicated Account Manager",
+              "Priority Support",
+              "24/7 Chat-Bot Support",
+              "Customizable Reporting",
+              "Booking Management",
+              "Trip Management",
+              "Driver Management"
+            ],
+            "most_valuable": false
+          },
+          {
+            "name": "One Time Development",
+            "description": "Tailored plan for large enterprises",
+            "durations": [
+              {
+                "type": "Custom",
+                "price": "2,500",
+                "discount": "20%"
+              }
+            ],
+            "features": [
+              "Custom Integration",
+              "Dedicated Account Manager",
+              "Priority Support",
+              "24/7 Chat-Bot Support",
+              "Customizable Reporting",
+              "Booking Management",
+              "Trip Management",
+              "Driver Management",
+              "WhatsApp Integration"
+            ],
+            "most_valuable": false
+          }
+        ],
+        "technical_specs": [
+          {
+            "image": "/src/assets/Security.png",
+            "title": "Security",
+            "description": "Compliance with GDPR and data protection regulations."
+          },
+          {
+            "image": "/src/assets/Cloud-Based-Hosting.png",
+            "title": "Cloud-Based Hosting",
+            "description": "Reliable and secure cloud infrastructure for accessibility and data management, ensuring data protection and compliance."
+          }
+        ],
+        "faqs": [
+          {
+            "question": "Is algoTravels compatible with all types of vehicles?",
+            "answer": "Yes, algoTravels supports compatibility with various types of vehicles, offering flexibility for different transportation needs."
+          },
+          {
+            "question": "How does the WhatsApp integration work for client and driver communication?",
+            "answer": "algoTravels seamlessly integrates WhatsApp updates for clients and drivers, facilitating real-time communication and updates throughout the travel process."
+          },
+          {
+            "question": "Can algoTravels be customized to suit our unique business requirements?",
+            "answer": "Yes, algoTravels offers customizable solutions to tailor the platform according to your specific business needs and requirements."
+          },
+          {
+            "question": "What security measures are in place to protect our data?",
+            "answer": "algoTravels implements robust security measures to safeguard your data, including encryption, access controls, and regular security audits."
+          },
+          {
+            "question": "Is training provided for administrators and users of algoTravels?",
+            "answer": "Yes, algoTravels offers comprehensive training programs for administrators and users to maximize platform utilization and efficiency."
+          },
+          {
+            "question": "What support options are available for technical issues or assistance?",
+            "answer": "algoTravels provides dedicated support channels, including email, phone, and online chat, for prompt assistance with technical issues and inquiries."
+          },
+          {
+            "question": "How often are updates and new features released for algoTravels?",
+            "answer": "algoTravels regularly releases updates and new features to enhance platform functionality, improve user experience, and address evolving customer needs."
+          },
+          {
+            "question": "Does algoTravels offer mobile apps for clients and drivers?",
+            "answer": "Yes, algoTravels provides dedicated mobile apps for both clients and drivers, offering convenient access to essential features and information on the go."
+          },
+          {
+            "question": "What reporting and analytics features are available in algoTravels?",
+            "answer": "algoTravels offers robust reporting and analytics features, allowing users to track key metrics, generate insights, and make informed decisions for better business outcomes."
+          },
+          {
+            "question": "Can algoTravels integrate with other existing software systems?",
+            "answer": "Yes, algoTravels supports seamless integration with other existing software systems, enabling interoperability and enhancing overall operational efficiency."
+          }
+        ],
+        "contact_info": {
+          "email": "info@algoTravels.com",
+          "phone": "+1 (123) 456-7890",
+          "website": "https://www.algoTravels.com"
+        }
+      }
+    },
+    {
+      "id": "prod-007",
+      "product_type": "Other",
+      "product_name": "AlgoRecog",
+      "color": "#000000",
+      "slug": "algo-recog-attendance-system",
+      "slogan": "Enhance Attendance Management with Algo-Recog",
+      "description": "Algo-Recog revolutionizes attendance management with advanced Facial Recognition technology. It offers seamless and contactless tracking in educational institutions, corporate offices, and events, ensuring accurate, fast, and hygienic recording.",
+      "key_services": [
+        {
+          "icon": "/src/assets/Facial-Recognition-Technology.png",
+          "title": "Facial Recognition Technology",
+          "description": "Utilizes advanced algorithms to accurately identify individuals based on facial features."
+        },
+        {
+          "icon": "/src/assets/Customizable-Settings.png",
+          "title": "Customizable Settings",
+          "description": "Tailors to specific organizational needs with adjustable configurations."
+        }
+      ],
+      "title_media": {
+        "title": "/src/assets/AlgoReco.gif",
+        "media_type": "image"
+      },
+      "additional_info": {
+        "features": [
+          {
+            "image": "/src/assets/Accuracy.png",
+            "title": "Accuracy",
+            "description": "Ensures precise attendance records, minimizing errors associated with manual methods."
+          },
+          {
+            "image": "/src/assets/Speed.png",
+            "title": "Speed",
+            "description": "Records attendance swiftly, saving time for both administrators and attendees."
+          },
+          {
+            "image": "/src/assets/Convenience.png",
+            "title": "Convenience",
+            "description": "Simplifies attendance tracking with intuitive and user-friendly operation."
+          },
+          {
+            "image": "/src/assets/Enhanced-Security.png",
+            "title": "Enhanced Security",
+            "description": "Provides a secure and reliable method for verifying individual identities."
+          }
+        ],
+        "use_cases": [
+          {
+            "category": "Educational Institutions",
+            "subcategories": [
+              {
+                "name": "Efficient Attendance Management",
+                "description": "Enhances administrative processes with efficient attendance tracking."
+              },
+              {
+                "name": "Student Verification",
+                "description": "Facilitates secure verification of students' identities for various academic purposes."
+              },
+              {
+                "name": "Parental Access",
+                "description": "Enables parents to access real-time attendance records and updates for their children."
+              },
+              {
+                "name": "Attendance Reporting",
+                "description": "Generates detailed reports on attendance patterns and trends for analysis and decision-making."
+              }
+            ]
+          },
+          {
+            "category": "Corporate Offices",
+            "subcategories": [
+              {
+                "name": "Employee Attendance Tracking",
+                "description": "Provides a modern solution for tracking employee attendance."
+              },
+              {
+                "name": "Remote Work Monitoring",
+                "description": "Facilitates monitoring of remote employees' attendance and productivity."
+              },
+              {
+                "name": "Leave Management",
+                "description": "Streamlines leave requests, approvals, and tracking processes for efficient workforce management."
+              },
+              {
+                "name": "Integration with Payroll Systems",
+                "description": "Integrates seamlessly with payroll systems for automated attendance-based payroll processing."
+              }
+            ]
+          },
+          {
+            "category": "Events and Conferences",
+            "subcategories": [
+              {
+                "name": "Attendee Registration",
+                "description": "Streamlines attendee registration and tracking processes."
+              },
+              {
+                "name": "Session Attendance Tracking",
+                "description": "Tracks attendance at different sessions and workshops during events and conferences."
+              },
+              {
+                "name": "Speaker Verification",
+                "description": "Ensures accurate verification of speakers' attendance for event management purposes."
+              },
+              {
+                "name": "VIP Access Control",
+                "description": "Manages access control for VIP attendees and speakers, ensuring smooth event execution."
+              }
+            ]
+          }
+        ],
+        "pricing_plans": [
+          {
+            "name": "Basic Plan",
+            "description": "Starter plan for small businesses",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "30,000",
+                "discount": "10"
+              }
+            ],
+            "features": [
+              "Facial Recognition Technology",
+              "Automated Attendance Tracking",
+              "Contactless Operation"
+            ],
+            "most_valuable": false
+          },
+          {
+            "name": "Pro Plan",
+            "description": "Advanced plan for growing businesses",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "50,000",
+                "discount": "15"
+              }
+            ],
+            "features": [
+              "Customizable Settings",
+              "Enhanced Security",
+              "Integration with Existing Systems"
+            ],
+            "most_valuable": true
+          },
+          {
+            "name": "Enterprise Plan",
+            "description": "Tailored plan for large enterprises",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "75,000",
+                "discount": "10"
+              }
+            ],
+            "features": [
+              "Scalability",
+              "Security Compliance",
+              "Comprehensive Support and Maintenance"
+            ],
+            "most_valuable": false
+          },
+          {
+            "name": "One Time Development",
+            "description": "Tailored plan for large enterprises",
+            "durations": [
+              {
+                "type": "Custom",
+                "price": "2,500",
+                "discount": "20"
+              }
+            ],
+            "features": [
+              "Custom Integration",
+              "Sentimental Analysis",
+              "NLP Integration"
+            ],
+            "most_valuable": false
+          }
+        ],
+        "technical_specs": [
+          {
+            "image": "/src/assets/Data-Security.png",
+            "title": "Data Security",
+            "description": "Ensures data security and privacy compliance with robust encryption protocols and secure data handling practices."
+          },
+          {
+            "image": "/src/assets/Scalability.png",
+            "title": "Scalability",
+            "description": "Suitable for organizations of all sizes, scalable according to evolving needs."
+          }
+        ],
+        "faqs": [
+          {
+            "question": "Is Algo-Recog suitable for educational institutions?",
+            "answer": "Yes, Algo-Recog is ideal for educational institutions, providing efficient attendance management solutions."
+          },
+          {
+            "question": "Can Algo-Recog be integrated with existing systems?",
+            "answer": "Yes, Algo-Recog can be seamlessly integrated with existing attendance management systems or used as a standalone solution."
+          },
+          {
+            "question": "Is there any training provided for using Algo-Recog?",
+            "answer": "Yes, comprehensive training and support services are provided for optimal utilization of Algo-Recog."
+          }
+        ],
+        "contact_info": {
+          "email": "info@algo-recog.com",
+          "phone": "+1 (123) 456-7890",
+          "website": "https://www.algo-recog.com"
+        }
+      }
+    },
+    {
+      "id": "prod-008",
+      "product_type": "Other",
+      "product_name": "AlgoEvalua",
+      "color": "black",
+      "slug": "algo-evalua",
+      "slogan": "Transforming Assessment Processes",
+      "description": "ALGO-EVALUA revolutionizes assessment processes with intuitive tools for test creation, AI-powered grading, grade-tailored assessments, real-time progress monitoring, and eco-friendly digital practices.",
+      "key_services": [
+        {
+          "icon": "/src/assets/Effortless-Test-Creation.png",
+          "title": "Effortless Test Creation",
+          "description": "Intuitive tools enable seamless test creation, saving educators time and effort."
+        },
+        {
+          "icon": "/src/assets/AI-Powered-Grading.png",
+          "title": "AI-Powered Grading",
+          "description": "Instant and precise grading powered by AI technology, providing prompt feedback to educators and students."
+        }
+      ],
+      "title_media": {
+        "title": "/AlgoEvalua.mp4",
+        "media_type": "video"
+      },
+      "additional_info": {
+        "features": [
+          {
+            "image": "/src/assets/Time-Efficiency.png",
+            "title": "Time Efficiency",
+            "description": "Automated grading saves educators valuable time, allowing for more focus on teaching and student engagement."
+          },
+          {
+            "image": "/src/assets/Personalized-Feedback.png",
+            "title": "Personalized Feedback",
+            "description": "Instant feedback offers tailored support to students, enhancing learning outcomes and comprehension."
+          },
+          {
+            "image": "/src/assets/Adaptability.png",
+            "title": "Adaptability",
+            "description": "Custom assessments adapt to grade-level standards, ensuring assessments remain relevant and effective."
+          },
+          {
+            "image": "/src/assets/Sustainability.png",
+            "title": "Sustainability",
+            "description": "Promotes eco-friendly practices by eliminating the need for paper exams, contributing to a greener learning environment."
+          }
+        ],
+        "use_cases": [
+          {
+            "category": "Educational Institutions",
+            "subcategories": [
+              {
+                "name": "Effortless Test Creation",
+                "description": "Facilitates seamless test creation for educators, reducing time and effort."
+              },
+              {
+                "name": "Real-Time Progress Monitoring",
+                "description": "Enables live tracking of student performance, allowing educators to provide timely support."
+              }
+            ]
+          },
+          {
+            "category": "Online Learning Platforms",
+            "subcategories": [
+              {
+                "name": "AI-Powered Grading",
+                "description": "Offers instant and precise grading through AI technology, enhancing assessment efficiency."
+              }
+            ]
+          },
+          {
+            "category": "Educational Technology Providers",
+            "subcategories": [
+              {
+                "name": "Grade-Tailored Assessments",
+                "description": "Provides customizable assessments tailored to meet specific grade-level standards and requirements."
+              },
+              {
+                "name": "Environmentally Friendly Practices",
+                "description": "Promotes eco-friendly digital assessment practices, contributing to a sustainable learning environment."
+              }
+            ]
+          }
+        ],
+        "pricing_plans": [
+          {
+            "name": "Basic Plan",
+            "description": "Starter plan for small businesses",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "30,000",
+                "discount": "10"
+              }
+            ],
+            "features": [
+              "Facial Recognition Technology",
+              "Automated Attendance Tracking",
+              "Contactless Operation"
+            ],
+            "most_valuable": false
+          },
+          {
+            "name": "Pro Plan",
+            "description": "Advanced plan for growing businesses",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "50,000",
+                "discount": "15"
+              }
+            ],
+            "features": [
+              "Customizable Settings",
+              "Enhanced Security",
+              "Integration with Existing Systems"
+            ],
+            "most_valuable": true
+          },
+          {
+            "name": "Enterprise Plan",
+            "description": "Tailored plan for large enterprises",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "75,000",
+                "discount": "10"
+              }
+            ],
+            "features": [
+              "Scalability",
+              "Security Compliance",
+              "Comprehensive Support and Maintenance"
+            ],
+            "most_valuable": false
+          },
+          {
+            "name": "One Time Development",
+            "description": "Tailored plan for large enterprises",
+            "durations": [
+              {
+                "type": "Custom",
+                "price": "2,500",
+                "discount": "20"
+              }
+            ],
+            "features": [
+              "Custom Integration",
+              "Sentimental Analysis",
+              "NLP Integration"
+            ],
+            "most_valuable": false
+          }
+        ],
+        "technical_specs": [
+          {
+            "image": "/src/assets/Technical-Specifications.png",
+            "title": "Technical Specifications",
+            "description": "Employs state-of-the-art technology for seamless integration and performance, ensuring reliability and scalability."
+          }
+        ],
+        "faqs": [
+          {
+            "question": "Is ALGO-EVALUA suitable for all grade levels?",
+            "answer": "Yes, ALGO-EVALUA's customizable assessments are designed to adapt to the standards and requirements of different grade levels."
+          },
+          {
+            "question": "Can ALGO-EVALUA be integrated with existing learning management systems?",
+            "answer": "Absolutely, ALGO-EVALUA is designed for seamless integration with various learning management systems, enhancing overall functionality."
+          },
+          {
+            "question": "Does ALGO-EVALUA provide support for educators and students?",
+            "answer": "Yes, ALGO-EVALUA offers comprehensive support services for educators and students, ensuring smooth operation and user satisfaction."
+          }
+        ],
+        "contact_info": {
+          "email": "",
+          "phone": "",
+          "website": ""
+        }
+      }
+    },
+    {
+      "id": "prod-009",
+      "product_type": "AI-Powered Mobile App",
+      "product_name": "Cafe Mobile App",
+      "color": "#FF614D",
+      "slug": "cafe-mobile-app",
+      "slogan": "Revolutionizing Cafe Management with AI Precision.",
+      "description": "Experience the cutting-edge AI-powered Cafe Mobile App designed to optimize every aspect of cafe management. Simplify order processing, streamline inventory management, create targeted promotions, and facilitate seamless billing, empowering cafe owners with unparalleled operational efficiency and customer satisfaction.",
+      "key_services": [
+        {
+          "icon": "/src/assets/Order-Management.png",
+          "title": "Behavior Analysis",
+          "description": "Effortlessly manage customer orders and optimize workflow through advanced AI capabilities."
+        },
+        {
+          "icon": "/src/assets/Billing-System.png",
+          "title": "AI-Driven Suggestions",
+          "description": "Generate accurate bills and invoices directly from the app, ensuring swift and convenient transactions."
+        }
+      ],
+      "title_media": {
+        "title": "/src/assets/cafe.gif",
+        "media_type": "image"
+      },
+      "additional_info": {
+        "features": [
+          {
+            "icon": "/src/assets/Effortless-Order-Taking.png",
+            "title": "Effortless AI-Driven Order Taking",
+            "description": "Customers can easily place orders using the intuitive interface, with AI simplifying and optimizing the ordering process."
+                },
+          {
+            "icon": "/src/assets/Real-Time-Inventory-Tracking.png",
+            "title": "Real-Time Inventory Tracking",
+            "description": "Monitor your cafe's inventory in real-time, ensuring optimal stock management."
+          },
+          {
+            "icon": "/src/assets/Customized-Offers.png",
+            "title": "Customized Offers",
+            "description": "Create personalized offers and discounts to engage customers and drive sales."
+          },
+          {
+            "icon": "/src/assets/Instant-Billing.png",
+            "title": "Instant Billing",
+            "description": "Generate precise bills instantly, enhancing transaction efficiency for both staff and customers."
+          }
+        ],
+        "use_cases": [
+          {
+            "category": "Cafe Owners",
+            "subcategories": [
+              {
+                "name": "Efficient Order Management",
+                "description": "Manage customer orders efficiently to ensure timely service and satisfaction."
+              },
+              {
+                "name": "Inventory Control",
+                "description": "Track inventory levels and streamline stock management processes."
+              },
+              {
+                "name": "Offer Management",
+                "description": "Create and manage enticing offers to attract and retain customers."
+              },
+              {
+                "name": "Billing and Invoicing",
+                "description": "Generate accurate bills and invoices for seamless transactions."
+              }
+            ]
+          },
+          {
+            "category": "Cafe Staff",
+            "subcategories": [
+              {
+                "name": "Order Fulfillment",
+                "description": "Efficiently fulfill orders and manage queues for optimal service."
+              },
+              {
+                "name": "Inventory Management",
+                "description": "Update inventory and track stock movements for continuous availability."
+              },
+              {
+                "name": "Offer Redemption",
+                "description": "Redeem offers seamlessly during order processing."
+              },
+              {
+                "name": "Billing Processing",
+                "description": "Process bills swiftly to complete transactions."
+              }
+            ]
+          }
+        ],
+        "pricing_plans": [
+          {
+            "name": "Basic Plan",
+            "description": "Entry-level plan for small businesses",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "30,000",
+                "discount": "10"
+              }
+            ],
+            "features": [
+              "Facial Recognition Technology",
+              "Automated Attendance Tracking",
+              "Contactless Operation"
+            ],
+            "most_valuable": false
+          },
+          {
+            "name": "Pro Plan",
+            "description": "Advanced plan for growing businesses",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "50,000",
+                "discount": "15"
+              }
+            ],
+            "features": [
+              "Customizable Settings",
+              "Enhanced Security",
+              "Integration with Existing Systems"
+            ],
+            "most_valuable": true
+          },
+          {
+            "name": "Enterprise Plan",
+            "description": "Tailored plan for large enterprises",
+            "durations": [
+              {
+                "type": "Subscription Model",
+                "price": "75,000",
+                "discount": "10"
+              }
+            ],
+            "features": [
+              "Scalability",
+              "Security Compliance",
+              "Comprehensive Support and Maintenance"
+            ],
+            "most_valuable": false
+          },
+          {
+            "name": "One Time Development",
+            "description": "Customized plan for large enterprises",
+            "durations": [
+              {
+                "type": "Custom",
+                "price": "2,500",
+                "discount": "20"
+              }
+            ],
+            "features": [
+              "Custom Integration",
+              "Sentiment Analysis",
+              "Natural Language Processing Integration"
+            ],
+            "most_valuable": false
+          }
+        ],
+        "technical_specs": [
+          {
+            "image": "/src/assets/App-Framework.png",
+            "title": "Intelligent Order Prediction",
+            "description": "AI-driven personalized recommendations based on historical orders and time-sensitive factors."
+          },
+          {
+            "image": "/src/assets/Real-Time-Data-Sync.png",
+            "title": "Real-time Menu Customization",
+            "description": "Utilize AI to dynamically adjust menu offerings based on customer preferences, seasonal trends, and inventory availability."
+          },
+          {
+            "image": "/src/assets/Cloud-Storage.png",
+            "title": "AI-driven Quality Control",
+            "description": "Implement AI-powered sensors for continuous monitoring of food quality and freshness, ensuring consistent standards and reducing waste."
+          }
+        ],
+        "faqs": [
+          {
+            "question": "Is the Cafe Mobile App compatible with both Android and iOS devices?",
+            "answer": "Yes, the Cafe Mobile App is developed using the Flutter framework, ensuring compatibility with Android and iOS platforms."
+          },
+          {
+            "question": "Can I manage multiple cafe locations using the app?",
+            "answer": "Absolutely, the app allows cafe owners to efficiently manage multiple locations from a unified dashboard."
+          },
+          {
+            "question": "How frequently are app updates released?",
+            "answer": "Regular updates are released to enhance functionality, address bugs, and introduce new features based on user feedback."
+          },
+          {
+            "question": "Can the app be customized for specific cafe requirements?",
+            "answer": "Yes, the app is customizable to meet unique cafe needs and branding preferences for a personalized user experience."
+          },
+          {
+            "question": "Does the app support integration with third-party payment gateways?",
+            "answer": "Certainly, the app seamlessly integrates with various third-party payment gateways to offer flexible payment options."
+          },
+          {
+            "question": "Is there a trial period available for testing the app?",
+            "answer": "Yes, cafe owners can avail a trial period to explore the app's features and functionalities before making a commitment."
+          },
+          {
+            "question": "How is customer data handled and secured?",
+            "answer": "Customer data is encrypted and stored securely in compliance with data protection regulations to ensure privacy and confidentiality."
+          },
+          {
+            "question": "Does the app offer multilingual support?",
+            "answer": "Yes, the app supports localization and provides multilingual support to cater to diverse user preferences."
+          },
+          {
+            "question": "Can I track sales and performance metrics using the app?",
+            "answer": "Absolutely, detailed sales reports and performance analytics are available to help cafe owners make informed decisions."
+          },
+          {
+            "question": "Is technical support available for troubleshooting?",
+            "answer": "Yes, dedicated technical support is accessible to assist users with any app-related issues or inquiries."
+          },
+          {
+            "question": "Does the app use AI to predict customer preferences?",
+            "answer": "Yes, the app leverages AI to analyze customer behavior and preferences, offering personalized recommendations and promotions."
+          },
+          {
+            "question": "Can the app help in optimizing inventory management using AI?",
+            "answer": "Indeed, the app uses AI algorithms to predict inventory needs based on past sales data, ensuring optimal stock levels and reducing waste."
+          }
+        ]
+      ,
+        "contact_info": {
+          "email": "",
+          "phone": "",
+          "website": ""
+        }
+      }
+    },
+    {
+      "id": "prod-010",
+      "product_type": "Upcoming",
+      "product_name": "AlgoFlow",
+      "color": "#DB492F",
+      "slug": "algo-flow",
+      "slogan": "Empower Your Conversational AI Experiences",
+      "description": "AlgoFlow is a comprehensive natural language understanding platform designed to enable the development of advanced conversational AI experiences. It provides developers with tools to create sophisticated virtual agents and chatbots for large-scale applications.",
+      "key_services": [
+        {
+          "icon": "/src/assets/Modular-Architecture.gif",
+          "title": "Modular Architecture",
+          "description": "AlgoFlow offers a modular approach to building conversational experiences, allowing developers to create reusable components and manage complex conversation structures efficiently."
+        },
+        {
+          "icon": "/src/assets/Advanced-Flow-Design.gif",
+          "title": "Advanced Flow Design",
+          "description": "The platform includes a visual flow builder for designing intricate conversation flows with branching logic, loops, and conditionals, enabling the creation of natural and contextually aware interactions."
+        }
+      ],
+      "title_media": {
+        "title": "/AlgoFlow.mp4",
+        "media_type": "video"
+      },
+      "additional_info": {
+        "features": [
+          {
+            "image": "/src/assets/Natural-Language-Processing.png",
+            "title": "Natural Language Processing",
+            "description": "Utilizes state-of-the-art natural language processing techniques to understand and interpret human language, enabling sophisticated conversational interactions."
+          },
+          {
+            "image": "/src/assets/Multi-Channel-Support.png",
+            "title": "Multi-Channel Support",
+            "description": "Allows deployment of virtual agents and chatbots across various channels, including websites, mobile apps, messaging platforms, and voice assistants."
+          },
+          {
+            "image": "/src/assets/Entity-Extraction.png",
+            "title": "Entity Extraction",
+            "description": "Offers advanced entity extraction capabilities to identify and extract relevant entities from user inputs, enabling more contextual responses and actions."
+          }
+        ],
+        "use_cases": [
+          {
+            "category": "Customer Support",
+            "subcategories": [
+              {
+                "name": "Automated Customer Assistance",
+                "description": "Provide automated assistance to customers through chatbots, addressing common queries and issues efficiently."
+              },
+              {
+                "name": "Knowledge Base Enhancement",
+                "description": "Enhance knowledge bases by integrating conversational AI to provide instant answers and assistance to users."
+              }
+            ]
+          },
+          {
+            "category": "Sales and Marketing",
+            "subcategories": [
+              {
+                "name": "Lead Generation",
+                "description": "Utilize chatbots for lead generation, engaging potential customers and capturing their interest in products or services."
+              },
+              {
+                "name": "Customer Engagement",
+                "description": "Enhance customer engagement by delivering personalized marketing messages and promotions through chatbots."
+              }
+            ]
+          }
+        ],
+        "technical_specs": [
+          {
+            "image": "/src/assets/Security.png",
+            "title": "Security",
+            "description": "Implements robust security measures to protect user data and ensure compliance with privacy regulations."
+          },
+          {
+            "image": "/src/assets/Scalability.png",
+            "title": "Scalability",
+            "description": "Designed to scale seamlessly to accommodate growing demand and large user bases."
+          }
+        ],
+        "faqs": [
+          {
+            "question": "Can AlgoFlow be integrated with existing systems?",
+            "answer": "Yes, AlgoFlow offers robust integration capabilities, allowing seamless integration with existing backend systems and services."
+          },
+          {
+            "question": "Is AlgoFlow suitable for small-scale applications?",
+            "answer": "While AlgoFlow is designed for large-scale applications, it can be adapted for smaller projects with tailored configurations and implementations."
+          },
+          {
+            "question": "What programming languages are supported for developing with AlgoFlow?",
+            "answer": "AlgoFlow supports multiple programming languages, including JavaScript, Python, and Java, providing flexibility for developers."
+          },
+          {
+            "question": "Can AlgoFlow handle multi-language support for conversational AI?",
+            "answer": "Yes, AlgoFlow provides robust support for multi-language capabilities, enabling the development of multilingual virtual agents and chatbots."
+          },
+          {
+            "question": "Is training required to use AlgoFlow?",
+            "answer": "While training in natural language processing and conversational AI concepts can be beneficial, AlgoFlow offers intuitive tools and documentation to facilitate ease of use for developers."
+          },
+          {
+            "question": "How does AlgoFlow ensure data privacy and security?",
+            "answer": "AlgoFlow implements industry-standard security measures, including encryption and access controls, to protect user data and ensure compliance with privacy regulations."
+          },
+          {
+            "question": "Can AlgoFlow analyze user sentiment and emotions?",
+            "answer": "Yes, AlgoFlow includes features for sentiment analysis, enabling the understanding of user emotions and sentiments for more personalized interactions."
+          },
+          {
+            "question": "Is AlgoFlow suitable for voice-based interactions?",
+            "answer": "Yes, AlgoFlow supports voice-based interactions, allowing the development of conversational AI experiences for voice assistants and IVR systems."
+          },
+          {
+            "question": "Does AlgoFlow provide real-time analytics?",
+            "answer": "Yes, AlgoFlow offers real-time analytics and insights, allowing developers to monitor user interactions and performance metrics in real-time."
+          },
+          {
+            "question": "Can AlgoFlow be deployed on-premises?",
+            "answer": "While AlgoFlow is primarily designed for cloud deployment, on-premises deployment options may be available for enterprise customers upon request."
+          }
+        ],
+        "contact_info": {
+          "email": "contact@algobrainai.com",
+          "phone": "+91 9313192028",
+          "website": "www.algobrainai.com/"
+        }
+      }
+    },
+    {
+      "id": "prod-011",
+      "product_type": "Upcoming",
+      "product_name": "AlgoERP",
+      "color": "#232323",
+      "slug": "algo-erp",
+      "slogan": "Streamline Your Business Operations with AlgoERP",
+      "description": "AlgoERP streamlines core business processes like finance, HR, supply chain, and manufacturing. With real-time data access and a centralized database, it enhances coordination and boosts efficiency.",
+      "key_services": [
+        {
+          "icon": "/src/assets/Supply-Chain-Management.png",
+          "title": "Supply Chain Management",
+          "description": "Tools for optimizing procurement, inventory management, order processing, and logistics."
+        },
+        {
+          "icon": "/src/assets/Reporting-and-Analytics.png",
+          "title": "Reporting and Analytics",
+          "description": "Capabilities for generating reports, dashboards, and analytics to gain insights into business performance and trends."
+        }
+      ],
+      "title_media": {
+        "title": "/src/assets/ERP-System.png",
+        "media_type": "image"
+      },
+      "additional_info": {
+        "features": [
+          {
+            "image": "/src/assets/Modular-Architecture.gif",
+            "title": "Modular Architecture",
+            "description": "AlgoERP offers a modular approach to building and customizing the ERP system, allowing organizations to select and integrate only the modules that meet their specific needs."
+          },
+          {
+            "image": "/src/assets/Real-Time-Data-Sync.png",
+            "title": "Real-Time Data Access",
+            "description": "With a centralized database and real-time data access, AlgoERP provides up-to-date information across departments, enabling better decision-making and collaboration."
+          },
+          {
+            "image": "/src/assets/Scalability.png",
+            "title": "Scalability",
+            "description": "AlgoERP is designed to scale with the growth of the organization, accommodating increased data volume, users, and business complexity."
+          },
+          {
+            "image": "/src/assets/Integration-Capabilities.png",
+            "title": "Integration Capabilities",
+            "description": "AlgoERP offers robust integration options, allowing seamless connectivity with other business systems, third-party applications, and external data sources."
+          },
+          {
+            "image": "/src/assets/Extensive-Customization.png",
+            "title": "Extensive Customization",
+            "description": "Organizations can customize AlgoERP to match their unique business processes, workflows, and requirements, ensuring the system aligns with their specific needs."
+          }
+        ],
+        "use_cases": [
+          {
+            "category": "Manufacturing Companies",
+            "subcategories": [
+              {
+                "name": "Production Optimization",
+                "description": "Optimize production processes, reduce downtime, and improve product quality with AlgoERP's manufacturing modules."
+              },
+              {
+                "name": "Inventory Management",
+                "description": "Efficiently manage inventory levels, track stock movements, and prevent stockouts with AlgoERP's supply chain management functionality."
+              }
+            ]
+          },
+          {
+            "category": "Service Industries",
+            "subcategories": [
+              {
+                "name": "Project Management",
+                "description": "Plan, execute, and monitor projects more effectively, ensuring timely delivery and client satisfaction."
+              },
+              {
+                "name": "Resource Allocation",
+                "description": "Optimize resource allocation, streamline service delivery processes, and improve resource utilization rates."
+              }
+            ]
+          }
+        ],
+        "faqs": [
+          {
+            "question": "Is AlgoERP suitable for small businesses?",
+            "answer": "Yes, AlgoERP is scalable and can be tailored to meet the needs of small, medium, and large enterprises."
+          },
+          {
+            "question": "Can AlgoERP be deployed on-premises?",
+            "answer": "Yes, AlgoERP offers both on-premises and cloud deployment options to accommodate different preferences and requirements."
+          },
+          {
+            "question": "Does AlgoERP support multi-currency transactions?",
+            "answer": "Yes, AlgoERP includes features to handle multi-currency transactions and support international operations."
+          },
+          {
+            "question": "Can AlgoERP integrate with third-party applications?",
+            "answer": "Yes, AlgoERP provides robust integration capabilities to connect with other business systems and applications."
+          },
+          {
+            "question": "How customizable is AlgoERP?",
+            "answer": "AlgoERP offers extensive customization options, allowing organizations to tailor the software to their specific business processes and requirements."
+          },
+          {
+            "question": "Is training provided for using AlgoERP?",
+            "answer": "Yes, AlgoERP typically offers training and support services to help users get started and maximize the benefits of the software."
+          },
+          {
+            "question": "What kind of support is available for AlgoERP?",
+            "answer": "AlgoERP typically provides various support options, including email support, phone support, and online documentation."
+          },
+          {
+            "question": "Does AlgoERP offer mobile access?",
+            "answer": "Yes, AlgoERP may offer mobile apps or mobile-friendly interfaces to enable users to access the system on-the-go."
+          },
+          {
+            "question": "Is AlgoERP compliant with data protection regulations?",
+            "answer": "Yes, AlgoERP prioritizes data security and compliance with relevant data protection regulations."
+          },
+          {
+            "question": "Can AlgoERP help improve decision-making?",
+            "answer": "Yes, AlgoERP provides real-time insights and analytics to support informed decision-making across various business functions."
+          }
+        ],
+        "contact_info": {
+          "email": "contact@algobrainai.com",
+          "phone": "+91 9313192028",
+          "website": "www.algobrainai.com/"
+        }
+      }
+    }
+  ]
+}

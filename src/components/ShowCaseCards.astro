@@ -1,0 +1,54 @@
+---
+import { extractImageExtension } from "@/lib/utils";
+import HoverCard from "./HoverCard";
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+import MyImage from "./MyImage.astro";
+
+const { title, description, image } = Astro.props;
+---
+
+<div class="fade-on-see">
+  <HoverCard
+    client:visible
+    backgroundColor="transparent"
+    direction="flex-col"
+    left="0"
+    childrenType="astro"
+  >
+    <div
+      slot="astroChild"
+      class="flex p-5 flex-col relative overflow-hidden height-auto text-foreground box-border outline-none"
+    >
+      <div
+        class="flex z-10 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large gap-2 pb-0"
+      >
+        {
+          image && (
+            <div class="flex justify-start p-2 text-white  items-center">
+              <MyImage
+                height={60}
+                width={60}
+                class="rounded-md"
+                loading="eager"
+                type={extractImageExtension(image)}
+                src={image}
+                alt={image}
+              />
+            </div>
+          )
+        }
+        <p class="text-base font-semibold">{title}</p>
+      </div><div
+        class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased"
+      >
+        <p class="font-normal text-base text-default-500">
+          {description}
+        </p>
+      </div>
+    </div>
+  </HoverCard>
+</div>

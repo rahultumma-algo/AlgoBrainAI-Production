@@ -1,0 +1,8 @@
+---
+import ProductDemoLayout from "@/layouts/ProductDemoLayout.astro";
+import FaceDetectionComponent from "@/components/emotion-detection.tsx";
+---
+
+<ProductDemoLayout filename="emotion-detection">
+  <FaceDetectionComponent client:load/>
+</ProductDemoLayout>

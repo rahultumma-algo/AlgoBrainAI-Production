@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .left-panel {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .right-panel {
+            flex: 2;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .image-container {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        #imageCanvas {
+            border: 1px solid #ddd;
+            cursor: crosshair;
+        }
+
+        .button-group {
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .loading {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #sessionStatus {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="sessionStatus"></div>
+
+    <div class="container">
+        <div class="left-panel">
+            <h2>Controls</h2>
+            
+            <!-- Email verification section -->
+            <div id="emailVerification">
+                <input type="email" id="emailInput" placeholder="Enter your email">
+                <button onclick="sendOTP()">Send OTP</button>
+                <div id="otpSection" style="display: none;">
+                    <input type="text" id="otpInput" placeholder="Enter OTP">
+                    <button onclick="verifyOTP()">Verify OTP</button>
+                </div>
+            </div>
+
+            <!-- Image generation section -->
+            <div id="imageGeneration" style="display: none;">
+                <h3>Generate Image</h3>
+                <textarea id="promptInput" rows="4" placeholder="Enter your prompt"></textarea>
+                <select id="orientationSelect">
+                    <option value="Square">Square</option>
+                    <option value="Landscape">Landscape</option>
+                    <option value="Portrait">Portrait</option>
+                </select>
+                <button onclick="generateImage()">Generate</button>
+            </div>
+
+            <!-- Masking controls -->
+            <div id="maskingControls" style="display: none;">
+                <h3>Masking Controls</h3>
+                <button onclick="startMasking()">Start Masking</button>
+                <button onclick="clearPoints()">Clear Points</button>
+                <button onclick="generateMask()">Generate Mask</button>
+                <p>Click 5 points on the image to define the area</p>
+            </div>
+
+            <!-- Output generation -->
+            <div id="outputControls" style="display: none;">
+                <h3>Generate Output</h3>
+                <textarea id="outputPrompt" rows="4" placeholder="Enter prompt for modification"></textarea>
+                <button onclick="generateOutput()">Generate Output</button>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="image-container">
+                <canvas id="imageCanvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading" id="loadingIndicator">Processing...</div>
+
+    <script>
+        const BASE_URL = 'https://webbackend.algobrainai.com/'; // Define the base URL
+
+        let email = '';
+        let selectedPoints = [];
+        let currentImage = null;
+        let maskImage = null;
+        let canvas = document.getElementById('imageCanvas');
+        let ctx = canvas.getContext('2d');
+
+        // Session check function
+        async function checkSession() {
+            if (!email) return;
+            
+            try {
+                const response = await fetch(`${BASE_URL}/check-session`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const data = await response.json();
+                
+                document.getElementById('sessionStatus').textContent = 
+                    data.active ? `Session active (${Math.floor(data.remaining_time / 60)} minutes remaining)` : 'Session expired';
+                
+                if (!data.active) {
+                    // Reset UI if session expired
+                    email = '';
+                    document.getElementById('emailVerification').style.display = 'block';
+                    document.getElementById('imageGeneration').style.display = 'none';
+                    document.getElementById('maskingControls').style.display = 'none';
+                    document.getElementById('outputControls').style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Session check failed:', error);
+            }
+        }
+
+        // Start session check interval
+        setInterval(checkSession, 60000); // Check every minute
+
+        async function sendOTP() {
+            const emailInput = document.getElementById('emailInput').value;
+            if (!emailInput) {
+                alert('Please enter an email address');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${BASE_URL}/send-otp`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: emailInput })
+                });
+                
+                if (response.ok) {
+                    document.getElementById('otpSection').style.display = 'block';
+                    alert('OTP sent successfully');
+                } else {
+                    const error = await response.json();
+                    alert(error.error || 'Failed to send OTP');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to send OTP');
+            }
+        }
+
+        async function verifyOTP() {
+            const emailInput = document.getElementById('emailInput').value;
+            const otpInput = document.getElementById('otpInput').value;
+
+            try {
+                const response = await fetch(`${BASE_URL}/verify-otp`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        email: emailInput,
+                        otp: otpInput
+                    })
+                });
+                
+                if (response.ok) {
+                    email = emailInput;
+                    document.getElementById('emailVerification').style.display = 'none';
+                    document.getElementById('imageGeneration').style.display = 'block';
+                    alert('OTP verified successfully');
+                } else {
+                    const error = await response.json();
+                    alert(error.error || 'Invalid OTP');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to verify OTP');
+            }
+        }
+
+        async function generateImage() {
+            const prompt = document.getElementById('promptInput').value;
+            const orientation = document.getElementById('orientationSelect').value;
+            
+            if (!prompt) {
+                alert('Please enter a prompt');
+                return;
+            }
+
+            document.getElementById('loadingIndicator').style.display = 'block';
+
+            try {
+                const response = await fetch(`${BASE_URL}/generate_initial_image`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        email,
+                        prompt,
+                        orientation
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.status === 429) {
+                    alert('Rate limit exceeded. Please wait a few minutes before trying again.');
+                    return;
+                }
+                
+                if (response.ok) {
+                    loadImage(data.file_url);
+                    document.getElementById('maskingControls').style.display = 'block';
+                } else {
+                    alert(data.error || 'Failed to generate image');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to generate image');
+            } finally {
+                document.getElementById('loadingIndicator').style.display = 'none';
+            }
+        }
+
+        function loadImage(url) {
+            currentImage = new Image();
+            currentImage.onload = function() {
+                canvas.width = currentImage.width;
+                canvas.height = currentImage.height;
+                ctx.drawImage(currentImage, 0, 0);
+            };
+            currentImage.src = `${BASE_URL}${url}`;
+        }
+
+        let isMasking = false;
+
+        function startMasking() {
+            isMasking = true;
+            selectedPoints = [];
+            if (currentImage) {
+                ctx.drawImage(currentImage, 0, 0);
+            }
+        }
+
+        function clearPoints() {
+            selectedPoints = [];
+            if (currentImage) {
+                ctx.drawImage(currentImage, 0, 0);
+            }
+        }
+
+        canvas.addEventListener('click', function(event) {
+            if (!isMasking || selectedPoints.length >= 5) return;
+
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            
+            selectedPoints.push([x, y]);
+            
+            // Draw point
+            ctx.fillStyle = 'red';
+            ctx.beginPath();
+            ctx.arc(x, y, 3, 0, 2 * Math.PI);
+            ctx.fill();
+
+            if (selectedPoints.length === 5) {
+                isMasking = false;
+            }
+        });
+
+        async function generateMask() {
+            if (selectedPoints.length !== 5) {
+                alert('Please select exactly 5 points');
+                return;
+            }
+
+            document.getElementById('loadingIndicator').style.display = 'block';
+
+            try {
+                const response = await fetch('/generate_mask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email,
+                        selected_pixels: selectedPoints,
+                        image_path: currentImage.src.split('/static/')[1]
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    maskImage = data.mask_url;
+                    document.getElementById('outputControls').style.display = 'block';
+                    alert('Mask generated successfully');
+                } else {
+                    alert(data.error || 'Failed to generate mask');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to generate mask');
+            } finally {
+                document.getElementById('loadingIndicator').style.display = 'none';
+            }
+        }
+
+        async function generateOutput() {
+            if (!maskImage) {
+                alert('Please generate a mask first');
+                return;
+            }
+
+            const prompt = document.getElementById('outputPrompt').value;
+            if (!prompt) {
+                alert('Please enter a prompt');
+                return;
+            }
+
+            document.getElementById('loadingIndicator').style.display = 'block';
+
+            try {
+                console.log(JSON.stringify({
+                    email,
+                    prompt,
+                    image_path: currentImage.src.split('/static/')[1],
+                    mask_path: maskImage.split('/static/')[1],
+                    maskImage:maskImage
+                }));
+                const response = await fetch('/generate_output', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email,
+                        prompt,
+                        image_path: currentImage.src.split('/static/')[1],
+                        mask_path: maskImage.split('/static/')[1]
+                    })
+                });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    loadImage(data.output_url);
+                } else {
+                    alert(data.error || 'Failed to generate output');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to generate output');
+            } finally {
+                document.getElementById('loadingIndicator').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generator and Inpainter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .loader {
+            border-top-color: #3498db;
+            animation: spin 1s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen font-sans">
+    <div class="container mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">AI Image Generator and Inpainter</h2>
+        
+        <div id="create-session-container" class="flex justify-center mb-8">
+            <button id="create-session" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:-translate-y-1">
+                Create Session
+            </button>
+        </div>
+
+        <div id="main-content" class="hidden">
+            <div class="flex justify-center mb-8">
+                <button id="clear-session" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:-translate-y-1 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none">
+                    Clear Session
+                </button>
+            </div>
+
+            <div class="flex flex-col items-center mb-8">
+                <div class="flex w-full max-w-xl">
+                    <input type="text" id="initial-prompt-input" class="flex-grow px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter prompt for initial image">
+                    <select id="orientation-select" class="px-4 py-2 bg-white border border-l-0 border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="Square">Square</option>
+                        <option value="Portrait">Portrait</option>
+                        <option value="Landscape">Landscape</option>
+                    </select>
+                </div>
+                <button id="generate-initial-image" class="mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:-translate-y-1 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none">
+                    Generate Initial Image
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-center text-gray-700 mb-4">Original Image</h3>
+                    <canvas id="canvas" class="w-full border border-gray-300 rounded-md"></canvas>
+                </div>
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-center text-gray-700 mb-4">Generated Mask</h3>
+                    <img id="mask-image" src="" alt="Generated Mask" class="w-full border border-gray-300 rounded-md hidden">
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center mt-8">
+                <button id="generate-mask" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:-translate-y-1 mb-4 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:transform-none" disabled>
+                    Generate Mask
+                </button>
+                <input type="text" id="prompt-input" class="w-full max-w-xl px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 hidden" placeholder="Enter your prompt here">
+            </div>
+
+            <img id="original-image" src="" alt="Uploaded Image" class="hidden">
+        </div>
+    </div>
+
+    <div id="loading-screen" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-24 w-24"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mainContent = document.getElementById('main-content');
+            const createSessionContainer = document.getElementById('create-session-container');
+            const createSessionButton = document.getElementById('create-session');
+            const clearSessionButton = document.getElementById('clear-session');
+            const generateInitialImageButton = document.getElementById('generate-initial-image');
+            const generateMaskButton = document.getElementById('generate-mask');
+            const promptInput = document.getElementById('prompt-input');
+            const maskImage = document.getElementById('mask-image');
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+            const img = document.getElementById('original-image');
+            const loadingScreen = document.getElementById('loading-screen');
+            const initialPromptInput = document.getElementById('initial-prompt-input');
+            const orientationSelect = document.getElementById('orientation-select');
+            let currentImagePath = '';
+            let selectedPixels = [];
+            let originalWidth, originalHeight;
+            let scaleX, scaleY;
+            let sessionActive = false;
+
+            function showLoading() {
+                loadingScreen.style.display = 'block';
+            }
+
+            function hideLoading() {
+                loadingScreen.style.display = 'none';
+            }
+
+            function displayImage(imageUrl) {
+                showLoading();
+                img.src = imageUrl;
+                img.onload = function() {
+                    originalWidth = img.naturalWidth;
+                    originalHeight = img.naturalHeight;
+                    
+                    const containerWidth = canvas.parentElement.clientWidth;
+                    const aspectRatio = originalHeight / originalWidth;
+                    canvas.width = containerWidth;
+                    canvas.height = containerWidth * aspectRatio;
+                    
+                    scaleX = originalWidth / canvas.width;
+                    scaleY = originalHeight / canvas.height;
+                    
+                    context.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    console.log("Image displayed on canvas");
+                    currentImagePath = imageUrl.split('/static/')[1].split('?')[0];
+                    selectedPixels = [];
+                    generateMaskButton.disabled = true;
+                    promptInput.style.display = 'none';
+                    maskImage.style.display = 'none';
+                    hideLoading();
+                };
+            }
+
+            function updateButtonStates() {
+                if (sessionActive) {
+                    createSessionContainer.classList.add('hidden');
+                    mainContent.classList.remove('hidden');
+                    clearSessionButton.disabled = false;
+                    generateInitialImageButton.disabled = false;
+                    generateMaskButton.disabled = selectedPixels.length < 5;
+                } else {
+                    createSessionContainer.classList.remove('hidden');
+                    mainContent.classList.add('hidden');
+                }
+
+                [clearSessionButton, generateInitialImageButton, generateMaskButton].forEach(button => {
+                    if (button.disabled) {
+                        button.classList.add('bg-gray-400', 'cursor-not-allowed', 'transform-none');
+                        button.classList.remove('hover:bg-red-600', 'hover:bg-green-600', 'hover:bg-purple-600', 'hover:-translate-y-1');
+                    } else {
+                        button.classList.remove('bg-gray-400', 'cursor-not-allowed', 'transform-none');
+                        if (button === clearSessionButton) button.classList.add('bg-red-500', 'hover:bg-red-600', 'hover:-translate-y-1');
+                        if (button === generateInitialImageButton) button.classList.add('bg-green-500', 'hover:bg-green-600', 'hover:-translate-y-1');
+                        if (button === generateMaskButton) button.classList.add('bg-purple-500', 'hover:bg-purple-600', 'hover:-translate-y-1');
+                    }
+                });
+            }
+
+            createSessionButton.addEventListener('click', function() {
+                showLoading();
+                fetch('/create_session', {
+                    method: 'POST',
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Session created:", data.session_id);
+                    sessionActive = true;
+                    updateButtonStates();
+                    hideLoading();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    hideLoading();
+                });
+            });
+
+            clearSessionButton.addEventListener('click', function() {
+                showLoading();
+                fetch('/clear_session', {
+                    method: 'POST',
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.message);
+                    sessionActive = false;
+                    selectedPixels = [];
+                    updateButtonStates();
+                    context.clearRect(0, 0, canvas.width, canvas.height);
+                    hideLoading();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    hideLoading();
+                });
+            });
+
+            canvas.addEventListener('click', function(event) {
+                if (!sessionActive) return;
+                if (selectedPixels.length >= 5) return;
+
+                const rect = canvas.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                
+                const originalX = Math.round(x * scaleX);
+                const originalY = Math.round(y * scaleY);
+                
+                selectedPixels.push([originalX, originalY]);
+
+                context.fillStyle = 'red';
+                context.beginPath();
+                context.arc(x, y, 3, 0, 2 * Math.PI);
+                context.fill();
+
+                updateButtonStates();
+            });
+
+            generateMaskButton.addEventListener('click', function() {
+                if (!sessionActive) return;
+                showLoading();
+                fetch('/generate_mask', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 
+                        selected_pixels: selectedPixels, 
+                        image_path: currentImagePath 
+                    }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.message);
+                    maskImage.src = data.mask_url + '?t=' + new Date().getTime();
+                    maskImage.style.display = 'block';
+                    promptInput.style.display = 'block';
+                    hideLoading();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    hideLoading();
+                });
+            });
+
+            generateInitialImageButton.addEventListener('click', function() {
+                if (!sessionActive) return;
+                const prompt = initialPromptInput.value;
+                const orientation = orientationSelect.value;
+                if (!prompt) {
+                    alert('Please enter a prompt for the initial image');
+                    return;
+                }
+
+                showLoading();
+                fetch('/generate_initial_image', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ prompt: prompt, orientation: orientation }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.file_url) {
+                        console.log("Generated image URL:", data.file_url);
+                        displayImage(data.file_url);
+                    } else {
+                        console.error("No image URL found in the response");
+                    }
+                    hideLoading();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    hideLoading();
+                });
+            });
+
+            promptInput.addEventListener('change', function() {
+                if (!sessionActive) return;
+                const prompt = promptInput.value;
+                if (prompt && maskImage.src) {
+                    showLoading();
+                    fetch('/generate_output', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            prompt: prompt,
+                            image_path: currentImagePath,
+                            mask_path: maskImage.src.split('/static/')[1].split('?')[0]
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.output_url) {
+                            console.log(data.message);
+                            displayImage(data.output_url);
+                        }
+                        hideLoading();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        hideLoading();
+                    });
+                }
+            });
+
+            // Initialize button states
+            updateButtonStates();
+        });
+    </script>
+</body>
+</html>

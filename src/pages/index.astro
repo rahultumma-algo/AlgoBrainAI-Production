@@ -1,0 +1,257 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProductCards from "@/components/ProductCards";
+import type { Product, BlogData, Course } from "@/lib/types";
+import type { Props as cardProps } from "@/components/ProductCard";
+import Hero from "@/Hero.astro";
+import data from "@/content/productData.json";
+import blogsData from "@/content/blogData.json";
+import Services from "@/components/sections/Services.astro";
+import Testimonials from "@/components/sections/Testimonials.astro";
+
+import {
+  transformProduct,
+  transformBlogData,
+  transformCourseData,
+} from "@/lib/utils";
+import About from "@/components/sections/About.astro";
+import ShowCaseCards from "@/components/ShowCaseCards.astro";
+import Contactus from "@/components/sections/Contactus.astro";
+import courseData from "@/content/courseData.json";
+
+const products: Product[] = data.products as unknown as Product[];
+
+const transformedProducts: cardProps[] = products.map((e) =>
+  transformProduct(e),
+);
+
+const blogs: BlogData[] = blogsData.blogs as unknown as BlogData[];
+
+const trasformedBlogs: cardProps[] = blogs.map((e) => transformBlogData(e));
+
+const courses: Course[] = courseData.courses as unknown as Course[];
+
+const transformedCourse: cardProps[] = courses.map((e) =>
+  transformCourseData(e),
+);
+---
+
+<Layout
+  hasBrowse={true}
+  browseItems={[
+    { label: "Products", href: "/products" },
+    { label: "Blogs", href: "/blogs" },
+  ]}
+  title="ALGOBRAIN AI"
+  description="ALGOBRAIN AI is a leading software company in Surat, India, harnessing the power of Artificial Intelligence (AI) to empower individuals and businesses to reach their full potential. We develop intelligent solutions that seamlessly integrate into your life, optimizing your professional workflow, enhancing your personal well-being, and fueling your creative endeavours. For businesses: We help businesses of all sizes unlock data-driven insights, automate tasks, and make smarter decisions with our AI-powered solutions. For individuals: We offer personalized AI tools for health and fitness, productivity and time management, and creative expression"
+>
+  <Hero slot="hero" />
+
+  <div class="flex-grow">
+    <section
+      class="relative z-10 container mx-auto max-w-7xl px-6 flex flex-col gap-2 w-full mt-24 lg:mt-56"
+    >
+      <About />
+      <div
+        class="grid grid-cols-1 my-5 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto"
+        style="margin-top: 150px;"
+      >
+        <ShowCaseCards
+          title="Mission"
+          description="Our mission is to inspire progress and enhance lives through innovative solutions, creating a better future for all. We are committed to pushing the boundaries of technology and harnessing its power for positive change."
+          image="/src/assets/MdiAccessPointNetwork.svg"
+        />
+        <ShowCaseCards
+          title="Vision"
+          description="We envision a boundless world of innovation, driving global growth and well-being through endless possibilities. Our vision is to create a sustainable and inclusive future where technology serves humanity."
+          image="/src/assets/MdiCog.svg"
+        />
+        <ShowCaseCards
+          title="Goal"
+          description="We aim to lead in tech, innovating with AI and IoT to improve the world and set high standards in our field. Our goal is to drive meaningful impact and empower people through cutting-edge technology."
+          image="/src/assets/MdiLightbulb.svg"
+        />
+      </div>
+    </section>
+    <section
+      id="services"
+      class="relative z-10 flex flex-col overflow-hidden gap-2 w-full mt-24 lg:mt-56"
+    >
+      <div class="w-full px-6">
+        <Services />
+      </div>
+    </section>
+
+
+    <section
+      id="work"
+      class="relative z-10 container mx-auto max-w-7xl px-6 flex flex-col gap-2 w-full mt-24 lg:mt-56"
+    >
+      <div>
+        <div
+          class="flex flex-col gap-2 items-start justify-center w-full fade-on-see"
+        >
+          <div>
+            <h1
+              class="tracking-tight inline text-foreground-700 font-semibold text-4xl lg:text-6xl bg-clip-text"
+            >
+              Our
+              <h1
+              class="mx-3 tracking-tight inline font-semibold bg-heading-highlight text-4xl lg:text-6xl bg-clip-text text-transparent"
+            >
+            Products 
+            </h1>
+            
+            </h1>
+            
+          </div>
+        </div>
+        <p
+          class="w-full md:w-1/2 my-2 fade-on-see text-lg lg:text-xl font-normal text-default-500 block max-w-full"
+        >
+          We believe in the power of continuous improvement. As technology
+          evolves and customer needs evolve, so do our products.
+        </p>
+      </div>
+
+      <ProductCards
+        cardFor="products"
+        viewAllUrl="/products"
+        data={transformedProducts}
+        client:visible={{ rootMargin: "250px" }}
+      />
+    </section>
+    <section
+    id="courses"
+    class="relative z-10 container mx-auto max-w-7xl px-6 flex flex-col gap-2 w-full mt-24 lg:mt-56"
+  >
+    <div>
+      <div
+        class="flex flex-col gap-2 items-start justify-center w-full fade-on-see"
+      >
+        <div>
+          <h1
+            class="tracking-tight inline text-foreground-700 font-semibold text-4xl lg:text-6xl bg-clip-text"
+          >
+          Our 
+
+          <div
+            class="mx-3 tracking-tight inline font-semibold bg-heading-highlight text-4xl lg:text-6xl bg-clip-text text-transparent"
+          >Courses
+        </div>
+
+        </h1>
+      </div>
+      </div>
+
+      <p
+        class="w-full fade-on-see md:w-1/2 my-2 text-lg lg:text-xl font-normal text-default-500 block max-w-full"
+      >
+        Explore a Variety of Topics and Specializations Through Engaging
+        Content.
+      </p>
+    </div>
+
+    <ProductCards
+      cardFor="courses"
+      type="feature"
+      data={transformedCourse}
+      client:visible={{ rootMargin: "250px" }}
+    />
+  </section>
+
+    <section
+      id="blogs"
+      class="relative z-10 container mx-auto max-w-7xl px-6 flex flex-col gap-2 w-full mt-24 lg:mt-56"
+    >
+      <div class="mb-4">
+        <div
+          class="flex flex-col gap-2 items-start justify-center w-full fade-on-see"
+        >
+          <div>
+            <h1
+              class="tracking-tight inline text-foreground-700 font-semibold text-4xl lg:text-6xl bg-clip-text"
+            >
+              Our
+            <div
+              class="mx-3 tracking-tight inline font-semibold bg-heading-highlight text-4xl lg:text-6xl bg-clip-text text-transparent"
+            >
+            Blogs 
+            </div>
+            
+          </h1>
+
+          </div>
+        </div>
+        <p
+          class="w-full md:w-1/2 my-2 fade-on-see text-lg lg:text-xl font-normal text-default-500 block max-w-full"
+        >
+          Explore our curated selection of articles, and join the conversation
+          as we explore the ideas shaping our world.
+        </p>
+      </div>
+      <section>
+        <ProductCards
+          cardFor="blogs"
+          viewAllUrl="/blogs"
+          data={trasformedBlogs}
+          client:visible={{ rootMargin: "250px" }}
+        />
+      </section>
+    </section>
+
+    <section
+      id="testimonials"
+      class="relative z-10 container mx-auto max-w-7xl px-6 flex flex-col gap-2 w-full mt-24 lg:mt-56"
+    >
+      <div class="mb-4">
+        <div
+          class="flex flex-col gap-2 items-start justify-center w-full fade-on-see"
+        >
+          <div>
+            <h1
+              class="tracking-tight inline text-foreground-700 font-semibold text-4xl lg:text-6xl bg-clip-text"
+            >
+            Client  
+            <div
+              class="mx-3 tracking-tight inline font-semibold bg-heading-highlight text-4xl lg:text-6xl bg-clip-text text-transparent"
+            >
+            Reviews 
+            </div>
+          </h1>
+
+          </div>
+        </div>
+        <p
+          class="w-full md:w-1/2 my-2 fade-on-see text-lg lg:text-xl font-normal text-default-500 block max-w-full"
+        >
+          Discover what our customers are saying about their experiences with
+          us. Read through their testimonials and see why they choose our
+          services.
+        </p>
+      </div>
+      <section>
+        <Testimonials
+        />
+      </section>
+    </section>
+    <!-- <div class="mx-auto px-8">
+      <Testimonials />
+    </div> -->
+
+    <section
+      class="relative
+       container mx-auto max-w-7xl px-6
+        z-10
+        flex
+        flex-col
+        gap-2
+        w-full
+        mt-24
+        lg:mt-56"
+    >
+      <Contactus />
+    </section>
+    
+  </div>
+</Layout>

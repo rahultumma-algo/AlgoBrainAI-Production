@@ -1,0 +1,285 @@
+---
+import { services } from "@/consts";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { convertImageName, extractImageExtension } from "@/lib/utils";
+
+import HoverModal from "@/components/HoverModal.tsx";
+import Oscillation from "../Oscillation.astro";
+import MyImage from "../MyImage.astro";
+import { Fragment } from "react";
+
+function divideServicesIntoSections(
+  services: {
+    image: string;
+    title: string;
+    description: string;
+  }[]
+) {
+  const midIndex = Math.floor(services.length / 2);
+  let servicesSection1 = [];
+  let servicesSection2 = [];
+
+  if (services.length % 2 === 0) {
+    // If the array length is even
+    servicesSection1 = services.slice(0, midIndex);
+    servicesSection2 = services.slice(midIndex);
+  } else {
+    // If the array length is odd
+    servicesSection1 = services.slice(0, midIndex + 1);
+    servicesSection2 = services.slice(midIndex + 1);
+  }
+
+  return { servicesSection1, servicesSection2 };
+}
+
+// Divide the services array into two sections
+const { servicesSection1, servicesSection2 } =
+  divideServicesIntoSections(services);
+---
+
+<div
+  class="hidden xl:grid grid-cols-[25%_auto_25%] items-center justify-center lg:min-h-[700px] lg:py-32"
+>
+  <div class="flex flex-col justify-center items-center gap-20">
+    {
+      servicesSection1.map((e) => (
+        <HoverModal client:visible content={e.description}>
+          <div slot="trigger" class="flex flex-col justify-center items-center">
+            <MyImage
+              height={60}
+              width={60}
+              class="rounded-md"
+              type={extractImageExtension(e.image)}
+              alt={e.image}
+              src={e.image}
+            />
+            <span class="font-light text-sm p-5">{e.title}</span>
+            {/* <hr class="mt-4" /> */}
+          </div>
+        </HoverModal>
+      ))
+    }
+  </div>
+  <div class="mb-4 w-full text-center relative ">
+    <div class="absolute z-10 -top-[85%] left-[10%] ">
+      <Oscillation />
+    </div>
+    <p
+      class="w-full relative mb-10 fade-on-see z-10 text-lg lg:text-xl font-normal text-default-500 block max-w-full"
+    >
+      From strategic consulting to hands-on implementation, our team is
+      dedicated to delivering solutions that drive success.
+    </p>
+    <div
+      class="flex flex-col relative gap-2 z-10 items-center lg:items-start justify-center w-full"
+    >
+      <div class="text-center">
+        <h1
+          class="tracking-tight inline text-foreground-700 font-semibold text-4xl lg:text-6xl bg-clip-text"
+        >
+          Explore Our
+          <span
+            class="inline-block align-middle fade-on-see eyeglasses-animation"
+          >
+            <div class="flex justify-center items-center">
+              <svg
+                height="64"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke-width="0.8"
+                stroke="rgb(255, 20, 147)"
+                class="bi bi-eyeglasses h-12 w-12 inline-block align-text-bottom"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4m2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A2 2 0 0 0 8 6c-.532 0-1.016.208-1.375.547M14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0"
+                ></path>
+              </svg>
+            </div>
+          </span>
+        </h1>
+        <h1
+          class="mx-3 fade-on-see tracking-tight inline font-semibold bg-heading-highlight text-4xl lg:text-6xl bg-clip-text text-transparent"
+        >
+          {" "} Wide {" "}
+        </h1>
+        <h1
+          class="tracking-tight inline text-foreground-700 font-semibold text-4xl lg:text-6xl bg-clip-text"
+        >
+          Service Spectrum
+          <span
+            class="inline-block align-middle fade-on-see box-seam-animation"
+          >
+            <div class="flex justify-center items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="64"
+                height="64"
+                fill="none"
+                stroke-width="0.8"
+                stroke="rgb(255, 20, 147)"
+                class="bi bi-box-seam h-12 w-12 inline-block align-text-bottom"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"
+                ></path>
+              </svg>
+            </div>
+          </span>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col justify-center items-center gap-20">
+    {
+      servicesSection2.map((e) => (
+        <HoverModal client:visible content={e.description}>
+          <div slot="trigger" class="flex flex-col justify-center items-center">
+            <MyImage
+              height={60}
+              width={60}
+              type={extractImageExtension(e.image)}
+              class="rounded-md"
+              alt={e.image}
+              src={e.image}
+            />
+            <span class="font-light text-sm p-5">{e.title}</span>
+            {/* <hr class="mt-4" /> */}
+          </div>
+        </HoverModal>
+      ))
+    }
+  </div>
+</div>
+<div class="block xl:hidden">
+  <div class="mb-4 w-full text-center relative">
+    <p
+      class="w-full relative mb-10 fade-on-see z-10 text-lg lg:text-xl font-normal text-default-500 block max-w-full"
+    >
+      From strategic consulting to hands-on implementation, our team is
+      dedicated to delivering solutions that drive success.
+    </p>
+    <div
+      class="flex flex-col relative gap-2 z-10 items-center lg:items-start justify-center w-full"
+    >
+      <div class="text-center">
+        <h1
+          class="tracking-tight inline text-foreground-700 font-semibold text-4xl lg:text-6xl bg-clip-text"
+        >
+          Explore Our
+          <span
+            class="inline-block align-middle fade-on-see eyeglasses-animation"
+          >
+            <div class="flex justify-center items-center">
+              <svg
+                height="64"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke-width="0.8"
+                stroke="rgb(255, 20, 147)"
+                class="bi bi-eyeglasses h-12 w-12 inline-block align-text-bottom"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4m2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A2 2 0 0 0 8 6c-.532 0-1.016.208-1.375.547M14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0"
+                ></path>
+              </svg>
+            </div>
+          </span>
+        </h1>
+        <h1
+          class="mx-3 fade-on-see tracking-tight inline font-semibold bg-heading-highlight text-4xl lg:text-6xl bg-clip-text text-transparent"
+        >
+          {" "} Wide {" "}
+        </h1>
+        <h1
+          class="tracking-tight inline text-foreground-700 font-semibold text-4xl lg:text-6xl bg-clip-text"
+        >
+          Service Spectrum
+          <span
+            class="inline-block align-middle fade-on-see box-seam-animation"
+          >
+            <div class="flex justify-center items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="64"
+                height="64"
+                fill="none"
+                stroke-width="0.8"
+                stroke="rgb(255, 20, 147)"
+                class="bi bi-box-seam h-12 w-12 inline-block align-text-bottom"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"
+                ></path>
+              </svg>
+            </div>
+          </span>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div
+    class="grid grid-cols-1 my-5 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto"
+  >
+    {
+      services.map((e) => (
+        <div
+          class="flex flex-col relative overflow-hidden height-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none border-transparent bg-white/5 dark:bg-default-400/10 backdrop-blur-lg backdrop-saturate-[1.8]"
+          tabindex="-1"
+        >
+          <Fragment>
+            <div class="flex p-3 z-10 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large gap-2 pb-0">
+              <Fragment>
+                <div class="flex justify-center p-2 rounded-full items-center bg-secondary-100/80 text-pink-500">
+                  <MyImage
+                    height={60}
+                    width={60}
+                    class="rounded-md"
+                    alt={e.image}
+                    type={extractImageExtension(e.image)}
+                    src={e.image}
+                  />
+                </div>
+                <p class="text-base font-semibold">{e.title}</p>
+              </Fragment>
+            </div>
+            <div class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
+              <p class="font-normal text-base text-default-500">
+                {e.description}
+              </p>
+            </div>
+          </Fragment>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  // Function to add active class when element is in viewport
+  function addActiveClassWhenVisible(elementSelector: string) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    const elements = document.querySelectorAll(elementSelector);
+    elements.forEach((element) => {
+      observer.observe(element);
+    });
+  }
+
+  // Call the function to add active class when the SVG elements are in viewport
+  addActiveClassWhenVisible(".eyeglasses-animation");
+  addActiveClassWhenVisible(".box-seam-animation");
+</script>

@@ -1,0 +1,360 @@
+---
+// AlgoBot.astro
+const defaultMessages = [
+  { text: "Hello! 👋 I'm AlgoBot, your AI assistant. How can I help you today?", type: 'bot' },
+  { text: "Hi AlgoBot! Can you tell me more about your features?", type: 'user' },
+  { text: "Sure! I can assist you with various tasks, provide information, and more. What would you like to know?", type: 'bot' }
+];
+---
+
+<div class="chatbot-container">
+  <!-- Chat Button -->
+  <button class="chat-button" aria-label="Open chat">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+    </svg>
+    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- Chat Window -->
+  <div class="chat-window">
+    <div class="chat-header">
+      <div class="header-content">
+        <div class="code-icon">
+          &lt;/&gt;
+        </div>
+        <h3>Binary Buddy</h3>
+        <button class="close-button">x</button>
+      </div>
+    </div>
+    
+    <div class="chat-messages">
+      {defaultMessages.map((message) => (
+        <div class={`message ${message.type}`}>
+          {message.type === 'bot' && (
+            <div class="bot-avatar">
+              &lt;/&gt;
+            </div>
+          )}
+          <div class="message-bubble">
+            {message.text}
+          </div>
+        </div>
+      ))}
+    </div>
+    
+    <div class="chat-input-container">
+      <textarea 
+        class="chat-input" 
+        placeholder="Type your message..." 
+        rows="1"
+      ></textarea>
+      <button class="send-button" aria-label="Send message">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .chatbot-container {
+    --primary-color: #4461F2;
+    --bg-color: #1a1b26;
+    --header-bg: #1f2937;
+    --message-bg: #1e293b;
+    --text-color: #e5e7eb;
+    --border-color: #374151;
+  }
+
+  .chat-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: linear-gradient(to right, #5553b7, #4f46e5);
+    backdrop-filter: blur(8px);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(85, 83, 183, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+
+  .chat-button:hover {
+    transform: scale(1.05);
+  }
+
+  .chat-button .close-icon {
+    display: none;
+  }
+
+  .chat-window {
+    position: fixed;
+    bottom: 6rem;
+    right: 2rem;
+    width: 360px;
+    height: 680px;
+    background: var(--bg-color);
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+  }
+
+  .chat-header {
+    padding: 1rem;
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+  }
+
+  .code-icon {
+    font-family: monospace;
+    background: #4461F2;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    margin-right: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .close-button {
+    background: none;
+    border: none;
+    color: #9ca3af;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem;
+  }
+
+  .chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--bg-color);
+  }
+
+  .message {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    max-width: 85%;
+  }
+
+  .message.bot {
+    align-self: flex-start;
+  }
+
+  .message.user {
+    flex-direction: row-reverse;
+    align-self: flex-end;
+  }
+
+  .bot-avatar {
+    font-family: monospace;
+    background: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    color: white;
+    height: fit-content;
+    min-width: fit-content;
+  }
+
+  .message-bubble {
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    line-height: 1.4;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    background: var(--message-bg);
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  .message.bot .message-bubble {
+    border-top-left-radius: 0.25rem;
+    background: var(--message-bg);
+  }
+
+  .message.user .message-bubble {
+    border-top-right-radius: 0.25rem;
+    background: var(--primary-color);
+  }
+
+  .chat-input-container {
+    padding: 1rem;
+    background: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .chat-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background: var(--message-bg);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    resize: none;
+    font-size: 0.95rem;
+  }
+
+  .chat-input::placeholder {
+    color: #9ca3af;
+  }
+
+  .send-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    background: #4461F2;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .send-button:hover {
+    background: #3651d2;
+  }
+
+  /* Show chat window when container has active class */
+  .chatbot-container.active .chat-window {
+    display: flex;
+  }
+
+  .chatbot-container.active .chat-button .close-icon {
+    display: block;
+  }
+
+  .chatbot-container.active .chat-button svg:not(.close-icon) {
+    display: none;
+  }
+
+  @media (max-width: 480px) {
+    .chat-window {
+      width: calc(100% - 2rem);
+      height: calc(100vh - 8rem);
+      bottom: 5rem;
+      right: 1rem;
+    }
+  }
+
+  .bot-avatar span {
+    font-family: monospace;
+    white-space: nowrap;
+  }
+</style>
+
+<script>
+  const chatContainer = document.querySelector('.chatbot-container');
+  const chatButton = document.querySelector('.chat-button');
+  const chatInput = document.querySelector('.chat-input') as HTMLTextAreaElement;
+  const sendButton = document.querySelector('.send-button');
+  const messagesContainer = document.querySelector('.chat-messages');
+
+  // Function to add default messages
+  const addDefaultMessages = () => {
+    console.log("Adding default messages");
+    addMessage("Hello! 👋 I'm AlgoBot, your AI assistant. How can I help you today?", 'bot');
+    addMessage("Hi AlgoBot! Can you tell me more about your features?", 'user');
+    addMessage("Sure! I can assist you with various tasks, provide information, and more. What would you like to know?", 'bot');
+  };
+
+  // Toggle chat window
+  chatButton?.addEventListener('click', () => {
+    chatContainer?.classList.toggle('active');
+    if (chatContainer?.classList.contains('active')) {
+      setTimeout(() => (chatInput as HTMLTextAreaElement)?.focus(), 300);
+      if (!messagesContainer?.hasChildNodes()) {
+        addDefaultMessages(); // Add default messages when chat is opened
+      }
+    }
+  });
+
+  // Add message to chat
+  const addMessage = (text: string, type: 'user' | 'bot') => {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${type}`;
+    
+    if (type === 'bot') {
+      messageDiv.innerHTML = `
+        <div class="bot-avatar">
+          <span>&lt;/&gt;</span>
+        </div>
+        <div class="message-bubble">${text}</div>
+      `;
+    } else {
+      messageDiv.innerHTML = `
+        <div class="message-bubble">${text}</div>
+      `;
+    }
+    
+    messagesContainer?.appendChild(messageDiv);
+    messagesContainer?.scrollTo({
+      top: messagesContainer.scrollHeight,
+      behavior: 'smooth'
+    });
+  };
+
+  // Handle sending messages
+  const sendMessage = () => {
+    const message = (chatInput as HTMLTextAreaElement)?.value.trim();
+    if (!message) return;
+
+    // Add user message
+    addMessage(message, 'user');
+    (chatInput as HTMLTextAreaElement).value = '';
+
+    // Simulate bot response
+    setTimeout(() => {
+      addMessage("I'm AlgoBot, a demo assistant. For real assistance, please contact our support team at contact@algobrainai.com", 'bot');
+    }, 1000);
+  };
+
+  // Send message on button click
+  sendButton?.addEventListener('click', sendMessage);
+
+  // Send message on Enter (but allow new lines with Shift+Enter)
+  chatInput?.addEventListener('keydown', (e: KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  // Auto-resize textarea with smooth animation
+  chatInput?.addEventListener('input', function(this: HTMLTextAreaElement) {
+    this.style.height = 'auto';
+    const newHeight = Math.min(this.scrollHeight, 150);
+    this.style.transition = 'height 0.2s ease';
+    this.style.height = newHeight + 'px';
+  });
+</script>

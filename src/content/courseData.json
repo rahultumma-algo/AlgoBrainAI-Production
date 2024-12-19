@@ -1,0 +1,105 @@
+{
+  "courses": [
+    {
+      "id": "course-001",
+      "type": "Programming",
+      "title": "Python for Beginners",
+      "description": "Dive into computer programming basics, Python's history, applications, and its significance, including its path to AI, with practical exercises and guided projects.",
+      "features": [
+        "Comprehensive Python Basics",
+        "Hands-on Practice",
+        "Guided Projects"
+      ],
+      "hashtags": ["Programming"],
+      "image": "/src/assets/python-beginners.png",
+      "link": "https://api.whatsapp.com/send?phone=919313192028&text=Hello,%20I%20am%20interested%20in%20Python%20for%20Beginners%20Course."
+    },
+    {
+      "id": "course-002",
+      "type": "Programming",
+      "title": "Master in Python",
+      "description": "Comprehensive Python course covering basics, history, applications, AI, Scratch, IDE setup, variables, control flow, functions, file handling, frameworks, with practical exercises.",
+      "features": [
+        "Comprehensive Curriculum",
+        "Interactive Learning",
+        "Practical Exercises"
+      ],
+      "hashtags": ["Programming"],
+      "image": "/src/assets/master-python.png",
+      "link": "https://api.whatsapp.com/send?phone=919313192028&text=Hello,%20I%20am%20interested%20in%20Master%20in%20Python%20Course."
+    },
+    {
+      "id": "course-003",
+      "type": "Artificial Intelligence",
+      "title": "AI Tools Expertise",
+      "description": "Master AI tools with programming, ML, DL, neural networks, and diverse applications in healthcare, finance, image generation, NLP, computer vision, and reinforcement learning.",
+      "features": [
+        "Comprehensive AI Concepts",
+        "Various AI Applications",
+        "Ethical Considerations"
+      ],
+      "hashtags": ["Artificial Intelligence"],
+      "image": "/src/assets/AI-Tools.png",
+      "link": "https://api.whatsapp.com/send?phone=919313192028&text=Hello,%20I%20am%20interested%20in%20AI%20Tools%20Expertise%20Course."
+    },
+
+    {
+      "id": "course-004",
+      "type": "Machine Learning",
+      "title": "Deep Learning for Beginner",
+      "description": "Explore Deep Learning and Machine Learning basics, covering fundamentals, Neural Networks, real-world projects, and transitions from ANN to CNN, including RNN, LSTM, Transformers.",
+      "features": [
+        "Comprehensive Learning Path",
+        "Understanding CNN Applications",
+        "Intuitive Insight into RNN, LSTM, Transformers"
+      ],
+      "hashtags": ["Deep Learning"],
+      "image": "/src/assets/DL-beginners.png",
+      "link": "https://api.whatsapp.com/send?phone=919313192028&text=Hello,%20I%20am%20interested%20in%20Deep%20Learning%20for%20Beginner%20Course."
+    },
+    {
+      "id": "course-005",
+      "type": "Machine Learning",
+      "title": "Master in Deep Learning",
+      "description": "Master in Deep Machine Learning provides comprehensive training, covering Deep Learning basics, neural networks, optimization techniques, and real-world applications.",
+      "features": [
+        "In-depth Deep Learning Exploration",
+        "Practical Hands-on Projects",
+        "Introduction to Various Neural Network Architectures"
+      ],
+      "hashtags": ["Deep Learning"],
+      "image": "/src/assets/Master-DL.png",
+      "link": "https://api.whatsapp.com/send?phone=919313192028&text=Hello,%20I%20am%20interested%20in%20Master%20in%20Deep%20Machine%20Learning%20Course."
+    },
+
+    {
+      "id": "course-006",
+      "type": "Machine Learning",
+      "title": "Machine Learning for Beginners",
+      "description": "Dive into essential Machine Learning concepts including algorithms like KNN, Decision Trees, and Naïve Bayes, along with practical Python implementation and supervised/unsupervised learning exploration.",
+      "features": [
+        "Fundamental ML Concepts",
+        "Practical Python Implementation",
+        "Supervised & Unsupervised Learning Exploration"
+      ],
+      "hashtags": ["Machine Learning"],
+      "image": "/src/assets/ML-beginners.png",
+      "link": "https://api.whatsapp.com/send?phone=919313192028&text=Hello,%20I%20am%20interested%20in%20Machine%20Learning%20for%20Beginners%20Course."
+    },
+
+    {
+      "id": "course-007",
+      "type": "Machine Learning",
+      "title": "Master in Machine Learning",
+      "description": "Explore Regression, Classification, Unsupervised Learning, and Ensemble Techniques with Python implementation, covering essential concepts and practical projects.",
+      "features": [
+        "Advanced ML Techniques Exploration",
+        "Hands-on Python Implementation",
+        "Practical Application Projects"
+      ],
+      "hashtags": ["Machine Learning"],
+      "image": "/src/assets/Master-ML.png",
+      "link": "https://api.whatsapp.com/send?phone=919313192028&text=Hello,%20I%20am%20interested%20in%20Master%20in%20Machine%20Learning%20Course."
+    }
+  ]
+}

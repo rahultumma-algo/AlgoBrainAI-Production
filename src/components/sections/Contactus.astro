@@ -1,0 +1,292 @@
+---
+import { Input, Textarea } from "@nextui-org/input";
+import { Button } from "@nextui-org/button";
+---
+
+<div
+  id="contact"
+  class="w-full max-w-7xl py-10 grid grid-cols-12 gap-6 md:gap-0 z-20"
+>
+  <div class="flex flex-col gap-2 col-span-12 md:col-span-6">
+    <div class="flex flex-col">
+      <h1 class="tracking-tight font-semibold text-[2.5rem] lg:text-5xl inline">
+        Let's
+        
+      </h1><div>
+        <h1
+          class="tracking-tight inline font-semibold bg-heading-highlight text-4xl lg:text-6xl bg-clip-text text-transparent"
+        >
+          Connect
+        </h1>
+      </div>
+    </div><p
+      class="w-full my-2 font-normal text-default-500 block max-w-full md:w-full text-base lg:text-lg"
+    >
+      Experience the power of AI to improve businesses!
+    </p><div class="flex flex-row gap-3 justify-start">
+      <!-- <a
+        class="tap-highlight-transparent no-underline hover:opacity-80 active:opacity-disabled transition-opacity z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-unit-4 min-w-unit-20 h-unit-10 gap-unit-2 rounded-full [&>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground data-[hover=true]:opacity-hover text-sm"
+        role="button"
+        href="https://www.instagram.com/algobrainai/"
+        title="Algobrain ai instagram page"
+        aria-label="Algobrain ai instagram page"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          ><path
+            fill="currentColor"
+            d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+          ></path></svg
+        >Instagram</a> -->
+      <!-- <a
+        class="tap-highlight-transparent no-underline hover:opacity-80 active:opacity-disabled transition-opacity z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 border-medium px-unit-4 min-w-unit-20 h-unit-10 gap-unit-2 rounded-full [&>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-transparent border-default text-foreground data-[hover=true]:opacity-hover text-sm"
+        role="button"
+        href="https://www.linkedin.com/company/98729773/admin/feed/posts/"
+        title="Algobrain AI LinkedIn page"
+        aria-label="Algobrain AI LinkedIn page"
+        target="_blank"
+        rel="noopener noreferrer"
+        >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="currentColor"
+          class="bi bi-linkedin"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
+          ></path>
+        </svg>LinkedIn</a> -->
+    </div>
+  </div><div class="col-span-12 md:col-span-6">
+    <div class="">
+      <div class="flex flex-wrap mb-3 md:flex-nowrap gap-3">
+        <Input variant="underlined" label="Name" id="sendername" client:idle />
+
+        <Input
+          type="email"
+          variant="underlined"
+          id="emailfrom"
+          label="Email"
+          client:idle
+        />
+      </div>
+      <Textarea
+        id="message"
+        client:idle
+        variant="underlined"
+        labelPlacement="outside"
+        placeholder="Enter your topic"
+        className="col-span-12 md:col-span-6 mb-6 md:mb-0"
+      />
+    </div>
+    <Button
+      id="submit"
+      variant="shadow"
+      className="mt-5 w-fit text-center mx-auto bg-gradient-to-tr from-pink-500 to-blue-500 text-white font-medium hover:scale-105 transition-transform"
+      client:visible
+    >
+      <span class="flex items-center gap-2">
+        Send Message
+        <svg 
+          class="animate-spin h-5 w-5 hidden"
+          id="loading-spinner"
+          xmlns="http://www.w3.org/2000/svg" 
+          fill="none" 
+          viewBox="0 0 24 24"
+        >
+          <circle 
+            class="opacity-25" 
+            cx="12" 
+            cy="12" 
+            r="10" 
+            stroke="currentColor" 
+            stroke-width="4"
+          ></circle>
+          <path 
+            class="opacity-75" 
+            fill="currentColor" 
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          ></path>
+        </svg>
+      </span>
+    </Button>
+    <span
+      class="flex gap-1 form-state justify-center items-center"
+      id="form-state"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        class="bi bi-check2"
+        viewBox="0 0 16 16"
+      >
+        <path
+          stroke="green"
+          stroke-width="2px"
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0"
+          class="path path-success"></path>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="none"
+        class="bi bi-x-lg"
+        viewBox="0 0 16 16"
+      >
+        <path
+          stroke="red"
+          stroke-width="2px"
+          class="path path-fail"
+          d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+        ></path>
+      </svg>
+
+      <p id="form-state-msg" class="hidden">Main sent successfully</p>
+    </span>
+  </div>
+</div>
+<style>
+  .form-state.success {
+    color: rgb(34, 197, 94) !important;
+  }
+
+  .form-state.fail {
+    color: rgb(220, 38, 38) !important;
+  }
+
+  .form-state.success #form-state-msg,
+  .form-state.fail #form-state-msg {
+    display: inline-block !important;
+  }
+
+  .form-state .path-success,
+  .form-state .path-fail {
+    stroke-dasharray: 450; /* Set the length of the path */
+    stroke-dashoffset: 450; /* Hide the path initially */
+    transition: stroke-dashoffset 2s ease; /* Transition for smooth animation */
+  }
+
+  .form-state.success .path-success {
+    stroke-dashoffset: 0; /* Show the path when active class is added */
+  }
+
+  .form-state.success .path-fail,
+  .form-state.fail .path-fail {
+    stroke-dashoffset: 450; /* Reset the stroke-dashoffset */
+  }
+
+  .form-state.fail .path-fail {
+    stroke-dashoffset: 0; /* Show the path when active class is added */
+  }
+
+  /* Style for the disabled state of the button */
+  #submit[disabled] {
+    opacity: 0.5; /* Adjust the opacity to make it duller */
+    cursor: not-allowed; /* Change cursor to not-allowed */
+  }
+</style>
+
+<script>
+  import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
+
+  function sendMail() {
+    const nameInput = document.querySelector<HTMLInputElement>("#sendername");
+    const emailInput = document.querySelector<HTMLInputElement>("#emailfrom");
+    const messageInput = document.querySelector<HTMLInputElement>("#message");
+    const submitButton = document.querySelector<HTMLButtonElement>("#submit");
+    const formState = document.getElementById("form-state");
+    const formStateMsg = document.getElementById("form-state-msg");
+
+    if (
+      !nameInput ||
+      !emailInput ||
+      !messageInput ||
+      !submitButton ||
+      !formState ||
+      !formStateMsg
+    ) {
+      console.error("One or more required elements not found.");
+      return;
+    }
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+
+    // Disable the button and make it duller
+    submitButton.disabled = true;
+
+    // Reset form state and message
+    formState.classList.remove("success", "fail");
+    if (formStateMsg) formStateMsg.textContent = "";
+
+    // Validate form fields
+    if (name === "" || email === "" || message === "") {
+      if (formStateMsg)
+        formStateMsg.textContent = "Please fill out all fields.";
+      if (formState) formState.classList.add("fail");
+      submitButton.disabled = false; // Enable the button
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      if (formStateMsg)
+        formStateMsg.textContent = "Please enter a valid email address.";
+      if (formState) formState.classList.add("fail");
+      submitButton.disabled = false; // Enable the button
+      return;
+    }
+
+    // Send email
+    emailjs.init("_hoXwc_L7GXPd0Noz"); // Account Public Key
+
+    const params: Record<string, unknown> = {
+      name: name,
+      email: email,
+      message: message,
+      toMail: "website.algobrainai@gmail.com",
+    };
+
+    const serviceID = "service_fyvugda"; // Email Service ID
+    const templateID = "template_wkxpxd9"; // Email Template ID
+    emailjs
+      .send(serviceID, templateID, params)
+      .then(() => {
+        // Show success state
+        if (formStateMsg) formStateMsg.textContent = "Email sent successfully!";
+        if (formState) formState.classList.add("success");
+
+        // Optionally, clear form fields after successful submission
+        if (nameInput) nameInput.value = "";
+        if (emailInput) emailInput.value = "";
+        if (messageInput) messageInput.value = "";
+      })
+      .catch((error: any) => {
+        // Show fail state
+        if (formStateMsg)
+          formStateMsg.textContent =
+            "Error sending email. Please try again later.";
+        if (formState) formState.classList.add("fail");
+
+        console.error("Error sending email:", error);
+      })
+      .finally(() => {
+        // Enable the button after email sending (whether success or failure)
+        if (submitButton) submitButton.disabled = false;
+      });
+  }
+
+  document.getElementById("submit")?.addEventListener("click", sendMail);
+</script>

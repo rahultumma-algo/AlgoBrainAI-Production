@@ -1,0 +1,63 @@
+---
+import type { LocalImageProps } from "astro:assets";
+import { Image } from "astro:assets";
+import {
+  extractImageExtension,
+  getImageNameWithExtension,
+  convertImageName,
+  getAssetSrc,
+  isVideo,
+} from "@/lib/utils";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*.{jpeg,jpg,png,gif,avif,jpg,svg,webp}"
+);
+
+interface Props extends Omit<LocalImageProps, "src"> {
+  src: string;
+  type: string;
+}
+
+const { src, type, ...rest } = Astro.props;
+
+const { height, alt, width, loading, id, class: className } = rest;
+if (!isVideo(src) && !images[src])
+  throw new Error(
+    `"${src}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+  );
+---
+
+{
+  isVideo(src) ? (
+    <video
+      class:list={[className]}
+      width={width}
+      height={height}
+      autoplay={true}
+      loop={true}
+      aria-hidden="true"
+      src={src}
+    />
+  ) : type == "gif" ? (
+    <img
+      class:list={[className]}
+      src={
+        //@ts-ignore
+        getAssetSrc(getImageNameWithExtension(src)).src
+      }
+      width={width}
+      height={height}
+      alt={alt}
+    />
+  ) : (
+    <Image
+      id={id}
+      height={height}
+      width={width}
+      loading={loading}
+      class:list={[className]}
+      src={images[src]()}
+      alt={convertImageName(src)}
+    />
+  )
+}

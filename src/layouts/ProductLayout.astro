@@ -1,0 +1,275 @@
+---
+import Layout from "./Layout.astro";
+import type { Product } from "@/lib/types";
+import { Image } from "astro:assets";
+import FAQAccordion from "@/components/Accordion.tsx";
+import ShowCaseCards from "@/components/ShowCaseCards.astro";
+import Pricing from "@/components/Pricing";
+import Banner from "@/components/sections/Banner.astro";
+import BreadCrumbs from "@/components/BreadCrumbs.astro";
+import type { ImageMetadata } from "astro";
+
+import { convertImageName, extractImageExtension } from "@/lib/utils";
+import MyImage from "@/components/MyImage.astro";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*.{jpeg,jpg,png,gif,avif,jpg,svg,webp}"
+);
+
+interface Props {
+  ProductInfo: Product;
+}
+
+const sections = [
+  { key: "technical_specs", label: "Specifications" },
+  { key: "use_cases", label: "Use cases" },
+  { key: "features", label: "Features" },
+  { key: "pricing_plans", label: "Pricing" },
+  { key: "faqs", label: "FAQ's" },
+];
+const { ProductInfo } = Astro.props;
+---
+
+<Layout
+  hasBrowse={true}
+  browseItems={sections
+    //@ts-ignore
+    .filter((section) => ProductInfo.additional_info?.[section.key])
+    .map((section) => ({ label: section.label, href: `#${section.key}` }))}
+  title=`ALGOBRAIN AI | Product ${ProductInfo.product_name}`
+  description={ProductInfo.description}
+>
+  <div
+    slot="hero"
+    class="flex flex-col lg:grid lg:grid-cols-4 gap-4 lg:h-screen grid-rows-4 w-[95%] mx-auto rounded-lg shadow border p-5"
+    style={{ background: ProductInfo.color }}
+  >
+    <div
+      class="col-start-3 col-span-full row-start-1 row-span-2 text-center flex flex-col justify-center items-center"
+    >
+      <h1
+        class="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white"
+      >
+        {ProductInfo.product_name}
+      </h1>
+      <p class="mb-6 text-large lg:text-2xlx sm:px-16 xl:px-48 font-semibold">
+        {ProductInfo.slogan}
+      </p>
+      {ProductInfo.demo_available && (
+        <div class="inline-flex items-center px-4 py-2 bg-white/10 rounded-full text-sm font-medium">
+          <a href={`/products/demo/${ProductInfo.demo_filename}`}>
+            View demo
+          </a>
+        </div>
+      )}
+    </div>
+
+    <div
+      class="col-start-1 order-1 col-span-2 row-start-1 row-span-full my-auto flex flex-col lg:items-center text-center"
+    >
+      <div id="bigImageContainer" class="w-full rounded-lg">
+        <MyImage
+          id="bigImage"
+          loading="eager"
+          src={ProductInfo.title_media.title}
+          height={850}
+          type={extractImageExtension(ProductInfo.title_media.title)}
+          width={850}
+          class="object-contain rounded-lg aspect-video"
+          alt={ProductInfo.title_media.title}
+        />
+      </div>
+      <div
+        class="flex order-2 mt-5 max-w-full gap-2 col-start-4 col-span-full row-start-4 row-span-full mx-auto"
+      >
+        {
+          ProductInfo.optional_media &&
+            ProductInfo.optional_media.length > 0 &&
+            ProductInfo.optional_media.map((e) => (
+              <div class="h-32 w-32 rounded-lg ">
+                <MyImage
+                  height={850}
+                  width={850}
+                  type={extractImageExtension(e.title)}
+                  src={e.title}
+                  class="rounded-lg small-image aspect-square object-contain"
+                  alt={e.title}
+                />
+              </div>
+            ))
+        }
+      </div>
+    </div>
+    <div class="col-start-3 order-2 col-span-full row-start-3 row-span-full">
+      <div
+        class="flex flex-col flex-wrap justify-center items-center lg:flex-nowrap w-full gap-5"
+      >
+        <div class="flex flex-wrap lg:flex-nowrap gap-5">
+          {
+            ProductInfo.key_services.map((e, index) => (
+              <div
+                class:list={[
+                  "border-0 pr-3 mx-auto",
+                  { "md:border-r-1 md:border-black": index == 0 },
+                ]}
+              >
+                <div class="flex flex-col z-10 w-full justify-center items-center text-center md:justify-start md:items-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large gap-2 pb-0">
+                  <div class="flex justify-start p-2  items-start ">
+                    <MyImage
+                      height={80}
+                      width={80}
+                      type={extractImageExtension(e.icon)}
+                      class=""
+                      loading="eager"
+                      src={e.icon}
+                      alt={e.icon}
+                    />
+                  </div>
+                  <p class="text-base font-semibold">{e.title}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <p class="mt-4">
+          {ProductInfo.description}
+        </p>
+      </div>
+    </div>
+  </div>
+  <main>
+    <div class="container mx-auto max-w-7xl px-6 flex-grow">
+      <div class="flex flex-col gap-4">
+        {
+          ProductInfo.additional_info?.technical_specs && (
+            <section
+              id="technical_specs"
+              class="relative z-10 flex flex-col gap-2 w-full mt-12 lg:mt-56  "
+            >
+              <h1 class="me-3 tracking-tight bg-heading-highlight text-transparent bg-clip-text  inline fade-on-see  font-semibold text-4xl lg:text-6xl  ">
+                Specifications
+              </h1>
+              <div class="grid grid-cols-1 my-5 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto">
+                {ProductInfo.additional_info.technical_specs.map((e, index) => (
+                  <ShowCaseCards
+                    title={e.title}
+                    description={e.description}
+                    image={e.image}
+                  />
+                ))}
+              </div>
+            </section>
+          )
+        }
+        {
+          ProductInfo.additional_info?.use_cases && (
+            <section
+              id="use_cases"
+              class="relative z-10 flex flex-col gap-2 w-full mt-24 lg:mt-56"
+            >
+              <h1 class="tracking-tight me-3 bg-heading-highlight text-transparent fade-on-see inline  font-semibold text-4xl lg:text-6xl bg-clip-text ">
+                Use cases
+              </h1>
+              <section class="mx-auto w-fit ">
+                {ProductInfo.additional_info.use_cases.map((e) => (
+                  <div class="flex flex-col gap-3 ">
+                    <p class="text-base font-semibold mt-3">{e.category}</p>
+                    <section class="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {e.subcategories.map((sube) => (
+                        <ShowCaseCards
+                          title={sube.name}
+                          description={sube.description}
+                        />
+                      ))}
+                    </section>
+                  </div>
+                ))}
+              </section>
+            </section>
+          )
+        }
+
+        {
+          ProductInfo.additional_info?.features && (
+            <section
+              id="features"
+              class="relative z-10 flex flex-col gap-2 w-full mt-24 lg:mt-56"
+            >
+              <h1 class="tracking-tight me-3 bg-heading-highlight text-transparent fade-on-see mb-4 inline  font-semibold text-4xl lg:text-6xl bg-clip-text ">
+                Features
+              </h1>
+
+              <section class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {ProductInfo.additional_info.features.map((e) => (
+                  <ShowCaseCards
+                    description={e.description}
+                    title={e.title}
+                    image={e.image}
+                  />
+                ))}
+              </section>
+            </section>
+          )
+        }
+        {
+          ProductInfo.additional_info?.pricing_plans && (
+            <section
+              id="pricing_plans"
+              class="relative z-10 flex flex-col gap-2 w-full mt-24 lg:mt-56"
+            >
+              <Pricing
+                data={ProductInfo.additional_info.pricing_plans}
+                client:load
+              />
+            </section>
+          )
+        }
+
+        {
+          ProductInfo.additional_info?.faqs && (
+            <section
+              id="faqs"
+              class="relative z-10 flex flex-col gap-2 w-full mt-24 lg:mt-56"
+            >
+              <h1 class="tracking-tight  fade-on-see bg-heading-highlight text-transparent bg-clip-text inline  dark:text-white font-semibold text-4xl lg:text-6xl bg-clip-text ">
+                FAQ's
+              </h1>
+
+              <section class="mt-4">
+                <FAQAccordion
+                  faqs={ProductInfo.additional_info.faqs}
+                  client:visible
+                />
+              </section>
+            </section>
+          )
+        }
+      </div>
+    </div>
+  </main>
+  <div class="mt-24">
+    <BreadCrumbs />
+  </div>
+</Layout>
+
+<script>
+  // Get references to the big image and small images
+  const bigImage: HTMLImageElement | null = document.getElementById(
+    "bigImage"
+  ) as HTMLImageElement | null;
+  const smallImages: NodeListOf<HTMLImageElement> =
+    document.querySelectorAll(".small-image");
+
+  // Check if bigImage is not null
+  if (bigImage !== null) {
+    // Attach click event listeners to each small image
+    smallImages.forEach((smallImage: HTMLImageElement) => {
+      smallImage.addEventListener("click", () => {
+        // Swap the src attributes of the big image and clicked small image
+        const tempSrc: string = bigImage.src;
+        bigImage.src = smallImage.src;
+        smallImage.src = tempSrc;
+      });
+    });
+  }
+</script>

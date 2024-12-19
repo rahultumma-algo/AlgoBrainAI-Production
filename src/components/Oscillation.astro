@@ -1,0 +1,70 @@
+<canvas id="canvas" width="600" height="600"></canvas>
+<style></style>
+
+<script>
+  const sun = new Image();
+  const moon = new Image();
+  const earth = new Image();
+  const canvas = document.getElementById("canvas");
+  if (canvas) {
+    canvas.style.opacity = "0.1";
+    canvas.style.filter = "brightness(0.8)"; // Adjust the brightness value as needed (0.5 reduces brightness by half)
+  }
+
+  function init() {
+    sun.src =
+      "data:image/svg+xml," +
+      encodeURIComponent(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><circle cx="300" cy="300" r="210" fill="none" stroke="#fbcfe8" stroke-width="10" /></svg>'
+      );
+
+    earth.src =
+      "data:image/svg+xml," +
+      encodeURIComponent(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><circle cx="24" cy="24" r="24" fill="#fbcfe8"  /></svg>'
+      );
+    window.requestAnimationFrame(draw);
+  }
+
+  function draw() {
+    //@ts-ignore
+    const ctx = document.getElementById("canvas").getContext("2d");
+    if (!ctx) return;
+    ctx.globalCompositeOperation = "destination-over";
+    ctx.clearRect(0, 0, 600, 600); // clear canvas
+
+    ctx.save();
+    ctx.translate(300, 300);
+
+    // Earth - Increase rotation speed by multiplying the rotation angles by a larger factor
+    const time = new Date();
+    ctx.rotate(
+      ((2 * Math.PI) / 10) * time.getSeconds() + // Increase speed by changing the multiplier from 60 to 10
+        ((2 * Math.PI) / 10000) * time.getMilliseconds() // Increase speed by changing the multiplier from 60000 to 10000
+    );
+    ctx.translate(210, 0);
+    ctx.drawImage(earth, -24, -24);
+
+    // Moon - Keep the same speed for the moon
+    ctx.save();
+    ctx.rotate(
+      ((2 * Math.PI) / 6) * time.getSeconds() +
+        ((2 * Math.PI) / 6000) * time.getMilliseconds()
+    );
+    ctx.translate(0, 57);
+    ctx.restore();
+
+    ctx.restore();
+
+    // Orbit Ring - Apply reduced opacity to the orbit stroke
+    ctx.beginPath();
+    ctx.arc(300, 300, 210, 0, Math.PI * 2, false); // Earth orbit
+    ctx.stroke();
+
+    ctx.drawImage(sun, 0, 0, 600, 600);
+
+    window.requestAnimationFrame(draw);
+  }
+
+  init();
+</script>

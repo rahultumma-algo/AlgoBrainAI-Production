@@ -1,0 +1,219 @@
+---
+import Layout from "./Layout.astro";
+import MyImage from "@/components/MyImage.astro";
+import { extractImageExtension } from "@/lib/utils";
+
+const { filename } = Astro.props;
+import data from "@/content/productData.json";
+import type { Product } from "@/lib/types";
+
+const products: Product[] = data.products as unknown as Product[];
+const product = products.find((p) => p.demo_filename === filename);
+
+if (!product) {
+  throw new Error(`Product with demo filename ${filename} not found`);
+}
+
+const relatedProducts = products.filter(p => 
+  p.product_type === product.product_type && 
+  p.product_name !== product.product_name
+);
+
+const title = `${product.product_name} Demo | ALGOBRAIN AI`;
+const description = product.description;
+---
+
+<Layout title={title} description={description} hasBrowse={false} browseItems={[]} hasHero={false}>
+  <div class="min-h-screen">
+    <!-- Hero section with product color background -->
+    <div style={`background-color: ${product.color}`} class="w-full py-20 text-white">
+      <div class="container mx-auto max-w-7xl px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <!-- Left side with image -->
+          <div>
+            <MyImage
+              src={product.title_media.title}
+              height={500}
+              width={800}
+              type={extractImageExtension(product.title_media.title)}
+              class="w-full object-cover rounded-xl"
+              alt={product.product_name}
+            />
+          </div>
+          
+          <!-- Right side content -->
+          <div class="space-y-8">
+            <!-- Product Type Badge -->
+            <div class="inline-flex items-center px-4 py-2 bg-white/10 rounded-full text-sm font-medium">
+              <a href={`/products/${product.slug}`}>
+                View details
+              </a>
+            </div>
+            <div class="inline-flex items-center px-4 py-2 bg-white/10 rounded-full text-sm font-medium">
+              <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"/>
+                <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"/>
+              </svg>
+              {product.product_type}
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-5xl lg:text-6xl font-extrabold">
+              {product.product_name}
+            </h1>
+
+            <!-- Slogan with simple vertical line -->
+            <div class="pl-6 border-l-4 border-white/30">
+              <p class="text-2xl font-medium text-white/90">
+                {product.slogan}
+              </p>
+            </div>
+
+            <!-- Description -->
+            <p class="text-xl text-white/80 leading-relaxed">
+              {product.description}
+            </p>
+
+            <!-- Key Features Preview -->
+            <div class="grid grid-cols-2 gap-6 pt-4">
+              {product.key_services.map((service) => (
+                <div class="flex items-start space-x-3">
+                  <div class="flex-shrink-0 p-2 bg-white/10 rounded-lg">
+                    <MyImage
+                      src={service.icon}
+                      height={24}
+                      width={24}
+                      type={extractImageExtension(service.icon)}
+                      class="w-6 h-6"
+                      alt={service.title}
+                    />
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-medium">{service.title}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="bg-gray-50 dark:bg-gray-900">
+      <div class="container mx-auto max-w-7xl px-6 py-24">
+        <!-- Main Content Card -->
+        <div class="w-full mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl">
+          <!-- Content Header -->
+          <div class="border-b border-gray-200 dark:border-gray-700">
+            <div class="px-8 py-6">
+              <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Product Demo</h2>
+            </div>
+          </div>
+          
+          <!-- Main Content Area -->
+          <div class="p-8">
+            <div class="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-a:text-primary-600">
+              <slot/>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Products Section -->
+        {relatedProducts.length > 0 && (
+          <div class="mt-24">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+                Related Solutions
+              </h2>
+              <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+                Explore more AI-powered solutions
+              </p>
+            </div>
+
+            <!-- Related Products Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {relatedProducts.map((relatedProduct) => (
+                <div class="relative">
+                  {/* Demo Button */}
+                  <a
+                    href={`/products/demo/${relatedProduct.demo_filename}`}
+                    class="z-[99] max-w-fit min-w-min inline-flex items-center justify-between box-border whitespace-nowrap px-5 py-2.5 text-sm rounded-lg bg-[linear-gradient(135.9deg,rgb(109,25,252)_16.4%,rgb(125,31,165)_56.1%)] hover:bg-[linear-gradient(135.9deg,rgb(119,35,255)_16.4%,rgb(135,41,175)_56.1%)] text-white absolute -top-3 left-1/2 -translate-x-1/2 shadow-[0_4px_12px_rgba(109,25,252,0.3)] transition-all duration-300 hover:shadow-[0_6px_16px_rgba(109,25,252,0.4)] group"
+                  >
+                    <p class="font-medium flex items-center gap-3">
+                      <span class="relative">
+                        View Demo
+                        <span class="absolute bottom-0 left-0 w-0 h-[1px] bg-white/40 group-hover:w-full transition-all duration-300"></span>
+                      </span>
+                      <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        width="16" 
+                        height="16" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        stroke-width="2" 
+                        stroke-linecap="round" 
+                        stroke-linejoin="round"
+                        class="transform group-hover:translate-x-0.5 transition-transform duration-300"
+                      >
+                        <path d="M5 12h14m-7-7 7 7-7 7"/>
+                      </svg>
+                    </p>
+                  </a>
+
+                  {/* Card Content */}
+                  <div class="bg-[#1C1F26] rounded-2xl overflow-hidden p-8 flex flex-col h-full">
+                    <div class="flex-1">
+                      <h3 class="text-2xl font-semibold text-white mb-2">
+                        {relatedProduct.product_name}
+                      </h3>
+                      <p class="text-[#7d8590] line-clamp-2 mb-6">
+                        {relatedProduct.description}
+                      </p>
+                      
+                      <a 
+                        href={`/products/${relatedProduct.demo_filename}`} 
+                        class="inline-flex items-center text-white hover:text-gray-300 font-semibold group"
+                      >
+                        Learn more
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="mb-[2px] transition inline-block ml-3 ease-in duration-300 group-hover:translate-x-1"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+
+                    {/* Image Container */}
+                    <div class="mt-6 overflow-hidden rounded-lg">
+                      <MyImage
+                        src={relatedProduct.title_media.title}
+                        height={300}
+                        width={400}
+                        type={extractImageExtension(relatedProduct.title_media.title)}
+                        class="w-full h-auto object-contain"
+                        alt={relatedProduct.product_name}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+
+  
+  </div>
+</Layout>

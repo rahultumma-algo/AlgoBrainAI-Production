@@ -1,0 +1,26 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import data from "@/content/productData.json";
+import type { Product } from "@/lib/types";
+import type { Props as cardProps } from "@/components/ProductCard";
+
+import { transformProduct } from "@/lib/utils";
+import ProductCards from "@/components/ProductCards";
+const products: Product[] = data.products as unknown as Product[];
+
+const transformedProducts: cardProps[] = products.map((e) =>
+  transformProduct(e)
+);
+---
+
+<Layout
+hasBrowse={false}
+browseItems={[]}
+  title="AlGOBRAIN AI | Product catalouge"
+  description="Explore our comprehensive collection of AI-powered products at ALGOBRAIN AI, designed to streamline processes, enhance productivity, and revolutionize your industry. Shop now for the latest in artificial intelligence technology"
+  hasHero={false}
+>
+  <div class="w-[80%] mx-auto">
+    <ProductCards cardFor="products" data={transformedProducts} client:load />
+  </div>
+</Layout>

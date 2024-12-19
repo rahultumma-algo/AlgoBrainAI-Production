@@ -1,0 +1,228 @@
+---
+interface Props {
+  title: string;
+  hasHero?: boolean;
+  description: string;
+  hasBrowse: boolean;
+  browseItems: Array<{ label: string; href: string }>;
+}
+import AlgoBot from "@/components/AlgoBot.astro";
+
+import { SEO } from "astro-seo";
+import { ViewTransitions } from "astro:transitions";
+
+const {
+  title,
+  hasHero = true,
+  description,
+  browseItems = [],
+  hasBrowse,
+} = Astro.props;
+import "@/styles/global.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/sections/Footer.astro";
+const { pathname } = Astro.url;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <SEO
+      title={title}
+      ,
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          type: "website",
+          image: "../assets/logo.png",
+        },
+      }}
+      twitter={{
+        creator: "ALGOBRAIN",
+        description: description,
+        site: "https://algobrainai.com/",
+        image: "../assets/logo.png",
+        title: "ALGOBRAIN AI",
+      }}
+      extend={{
+        // extending the default link tags
+        link: [{ rel: "icon", href: "/favicon.ico" }],
+        // extending the default meta tags
+        meta: [
+          {
+            name: "twitter:image",
+            content: "../assets/logo.png",
+          },
+          { name: "twitter:title", content: "Algobrain AI" },
+          { name: "twitter:description", content: description },
+        ],
+      }}
+    />
+    <ViewTransitions />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="sitemap" href="/sitemap-0.xml" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
+    {
+      pathname == "/" ? (
+        <>
+          <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+          />
+          <link
+            rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          />
+        </>
+      ) : (
+        ""
+      )
+    }
+  </head>
+  <body>
+    <AlgoBot />
+    {
+      hasHero ? (
+        <div>
+          <div class="flex flex-col lg:h-screen">
+            <div class="w-[95%]  md:mx-auto mb-14">
+              <Navbar
+                browseItems={browseItems}
+                hasBrowseSection={hasBrowse}
+                client:load
+              />
+            </div>
+
+            <div class="flex-grow flex-1">
+              <slot name="hero" />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div class="w-[95%]  mx-auto mb-14">
+          <Navbar
+            browseItems={browseItems}
+            hasBrowseSection={hasBrowse}
+            client:load
+          />
+        </div>
+      )
+    }
+
+    <slot />
+
+    <style is:global>
+      html {
+        scroll-behavior: smooth;
+        /* cursor: none; */
+      }
+      /*
+      .custom-cursor {
+        width: 20px;
+        height: 20px;
+        background-color: #94a3b8;
+        border: 2px solid #ccc;
+        border-radius: 50%;
+        position: absolute;
+        pointer-events: none; 
+        transition: transform 0.2s ease; 
+      } 
+      */
+
+      .fade-on-see {
+        opacity: 0;
+        transform: translateY(20px); /* Initial translation */
+        transition:
+          opacity 0.5s ease-in-out,
+          transform 0.5s ease-in-out; /* Apply transition for opacity and transform */
+      }
+
+      @media (min-width: 1028px) {
+        .blob-bg::before {
+          position: absolute; /* Position the effect absolutely */
+          z-index: -1;
+          content: "";
+          top: 0%;
+          bottom: 10%;
+          width: 70%;
+          left: 50%; /* Center horizontally */
+          transform: translateX(-50%); /* Adjust for the width of the effect */
+          background: linear-gradient(83.21deg, #06b6d4 0%, #7c3aed 100%);
+          -webkit-mask-image: radial-gradient(
+            rgba(0, 0, 0, 0.45),
+            transparent 70%
+          );
+          border-radius: 50%;
+          mask-image: radial-gradient(rgba(0, 0, 0, 0.45), transparent 70%);
+        }
+      }
+      .bg-glass {
+        background-color: #0000005e; /* Adjust the alpha value for transparency */
+        backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
+      }
+    </style>
+
+    <Footer />
+
+    <script>
+      function fadeOnSee(selector: string): void {
+        const fadeOnSeeElements: NodeListOf<Element> =
+          document.querySelectorAll(selector);
+
+        const observer = new IntersectionObserver(
+          (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry: IntersectionObserverEntry) => {
+              if (entry.isIntersecting) {
+                (entry.target as HTMLElement).style.opacity = "1"; // Set opacity to 1
+                (entry.target as HTMLElement).style.transform = "translateY(0)"; // Remove translation
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.99, // Adjust threshold as needed
+          },
+        );
+
+        fadeOnSeeElements.forEach((element: Element) => {
+          observer.observe(element);
+        });
+      }
+
+      // Usage:
+      fadeOnSee(".fade-on-see");
+
+      document.addEventListener("astro:after-swap", () => {
+        fadeOnSee(".fade-on-see");
+        cursor();
+      });
+
+      function cursor(): void {
+        const cursor: HTMLDivElement = document.createElement("div");
+        cursor.classList.add("custom-cursor");
+        document.body.appendChild(cursor);
+
+        document.addEventListener("mousemove", (e: MouseEvent) => {
+          cursor.style.left = e.pageX + "px";
+          cursor.style.top = e.pageY + "px";
+        });
+
+        document.addEventListener("click", () => {
+          cursor.style.transform = "scale(0.5)"; // Shrinks the cursor on click
+          setTimeout(() => {
+            cursor.style.transform = "scale(1)"; // Returns cursor to original size after a delay
+          }, 200); // Adjust the delay as needed (in milliseconds)
+        });
+      }
+    </script>
+  </body>
+</html>

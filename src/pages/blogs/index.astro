@@ -1,0 +1,24 @@
+---
+import { transformProduct, transformBlogData } from "@/lib/utils";
+import blogsData from "@/content/blogData.json";
+import type { BlogData } from "@/lib/types";
+import type { Props as cardProps } from "@/components/ProductCard";
+import Layout from "@/layouts/Layout.astro";
+import ProductCards from "@/components/ProductCards";
+
+const blogs: BlogData[] = blogsData.blogs as unknown as BlogData[];
+
+const transformedBlogs: cardProps[] = blogs.map((e) => transformBlogData(e));
+---
+
+<Layout
+  hasBrowse={false}
+  browseItems={[]}
+  title="AlGOBRAIN AI | Blogs"
+  description="Explore the latest insights, trends, and developments in artificial intelligence on the AI blog at ALGOBRAIN AI. Stay informed with expert analysis, industry news, and practical tips to harness the power of AI for your business and personal projects."
+  hasHero={false}
+>
+  <div class="w-[80%] mx-auto">
+    <ProductCards cardFor="blogs" data={transformedBlogs} client:load />
+  </div>
+</Layout>

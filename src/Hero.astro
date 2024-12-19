@@ -1,0 +1,702 @@
+---
+import { Button } from "@nextui-org/button";
+---
+
+<div class="relative h-full overflow-hidden">
+  <section class="relative h-full hero-container">
+    <div
+      class="h-full w-full hidden lg:w-[500px] absolute left-0 top-0 p-3 md:grid grid-cols-6 grid-rows-6 gap-3"
+    >
+      <div
+        id="first"
+        data-node-index="6"
+        class="relative feature-hero-node col-start-1 col-span-1 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            class="fill-none stroke-slate-300 dark:stroke-slate-700 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#6C63FF] group-hover:fill-[#6C63FF]"
+            fill="currentColor"
+            d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5A2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5a2.5 2.5 0 0 0 2.5 2.5a2.5 2.5 0 0 0 2.5-2.5a2.5 2.5 0 0 0-2.5-2.5"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >Bots</span
+        >
+      </div>
+      <div class="col-start-1 col-span-1 row-start-2 row-span-4 w-[80px]">
+        <div
+          data-node-index="7"
+          data-source="#first"
+          data-connect="#second"
+          class="w-[2px] active connector mx-auto"
+        >
+        </div>
+      </div>
+
+      <div
+        id="third"
+        data-node-index="1"
+        class="relative feature-hero-node col-start-2 col-span-1 row-start-2 row-span-1 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            fill="currentColor"
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#f87171] group-hover:fill-[#f87171]"
+            d="m13.78 15.3l6 6l2.11-2.16l-6-6zm3.72-5.2c-.39 0-.81-.05-1.14-.19L4.97 21.25l-2.11-2.11l7.41-7.4L8.5 9.96l-.72.7l-1.45-1.41v2.86l-.7.7l-3.52-3.56l.7-.7h2.81l-1.4-1.41l3.56-3.56a2.976 2.976 0 0 1 4.22 0L9.89 5.74l1.41 1.4l-.71.71l1.79 1.78l1.82-1.88c-.14-.33-.2-.75-.2-1.12a3.49 3.49 0 0 1 3.5-3.52c.59 0 1.11.14 1.58.42L16.41 6.2l1.5 1.5l2.67-2.67c.28.47.42.97.42 1.6c0 1.92-1.55 3.47-3.5 3.47"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >hardware</span
+        >
+      </div>
+
+      <div
+        data-node-index="3"
+        id="fourth"
+        class="relative feature-hero-node col-start-3 col-span-1 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#5eead4] group-hover:fill-[#5eead4]"
+            d="M13 9h5.5L13 3.5zM6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5l3.74 3.74l1.42-1.41l-2.33-2.33l2.33-2.33l-1.42-1.41zm11.16 0l-3.74-3.74l-1.42 1.41l2.33 2.33l-2.33 2.33l1.42 1.41z"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >software</span
+        >
+      </div>
+      <div
+        id="fifth"
+        data-node-index="5"
+        class="relative feature-hero-node col-start-3 col-span-1 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-[.active]:stroke-none group-[.active]:fill-[#fb923c] group-hover:fill-[#fb923c]"
+            fill="currentColor"
+            d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4s8-1.79 8-4s-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >storage</span
+        >
+      </div>
+      <div class="col-start-3 col-span-1 row-start-2 row-span-3 w-[80px]">
+        <div
+          data-source="#fifth"
+          data-connect="#fourth"
+          class="connector w-[2px] mx-auto"
+        >
+        </div>
+      </div>
+      <div
+        id="sixth"
+        class="relative feature-hero-node col-start-4 col-span-1 row-start-2 row-span-2 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+        data-node-index="2"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#67e8f9] group-hover:fill-[#67e8f9]"
+            fill="currentColor"
+            d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48q1.18-1.53 3.08-1.95q.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5q1.14 1.28 1.14 3q0 1.88-1.31 3.19T18.5 20Z"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >cloud</span
+        >
+      </div>
+      <div
+        data-node-index="4"
+        id="seventh"
+        class="relative feature-hero-node col-start-4 col-span-1 row-start-4 row-span-2 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#6C63FF] group-hover:fill-[#6C63FF]"
+            fill="currentColor"
+            d="M21 7H3V3h18zm-9 12c0 .7.11 1.37.3 2H4V8h16v4.08c-.33-.05-.66-.08-1-.08c-3.87 0-7 3.13-7 7m3-6v-1.5c0-.28-.22-.5-.5-.5h-5c-.28 0-.5.22-.5.5V13zm8.8 7.4c.1 0 .1.1 0 .2l-1 1.7c-.1.1-.2.1-.3.1l-1.2-.4c-.3.2-.5.3-.8.5l-.2 1.3c0 .1-.1.2-.2.2h-2c-.1 0-.2-.1-.3-.2l-.2-1.3c-.3-.1-.6-.3-.8-.5l-1.2.5c-.1 0-.2 0-.3-.1l-1-1.7c-.1-.1 0-.2.1-.3l1.1-.8v-1l-1.1-.8c-.1-.1-.1-.2-.1-.3l1-1.7c.1-.1.2-.1.3-.1l1.2.5c.3-.2.5-.3.8-.5l.2-1.3c0-.1.1-.2.3-.2h2c.1 0 .2.1.2.2l.2 1.3c.3.1.6.3.9.5l1.2-.5c.1 0 .3 0 .3.1l1 1.7c.1.1 0 .2-.1.3l-1.1.8v1zM20.5 19c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5s.7 1.5 1.5 1.5s1.5-.7 1.5-1.5"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >maintain</span
+        >
+      </div>
+      <div
+        id="eighth"
+        data-node-index="2"
+        class="relative feature-hero-node col-start-6 col-span-1 row-start-1 row-span-2 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#6C63FF] group-hover:fill-[#6C63FF]"
+            fill="currentColor"
+            d="M22 9V7h-2V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2h2v-2h-2v-2h2v-2h-2V9zm-4 10H4V5h14zM6 13h5v4H6zm6-6h4v3h-4zM6 7h5v5H6zm6 4h4v6h-4z"
+          ></path></svg
+        >
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >develop</span
+        >
+      </div>
+
+      <div
+        id="ninth"
+        data-node-index="10"
+        class="relative feature-hero-node col-start-6 col-span-1 row-start-6 row-span-2 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            fill="currentColor"
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#ec4899] group-hover:fill-[#ec4899]"
+            d="m13.13 22.19l-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63l6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05c.17 1.39-.02 4.25-3.3 7.53c-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93c-2.19 2.19-3.5 4.6-4.35 6.71c-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61c.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83c-.78.78-2.05.78-2.83 0m-5.66 7.07l-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76l-1.42-1.41L2 20.59zm0-2.83l4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >growing</span
+        >
+      </div>
+      <div class="col-start-2 col-span-5 row-start-6 row-span-5">
+        <svg
+          data-node-index="9"
+          data-source="#ninth"
+          data-connect="#tenth"
+          class="connector-svg active"
+          xmlns="http://www.w3.org/2000/svg"
+          data-astro-cid-anhloy43=""
+          data-astro-source-file="D:/ALGO Projects/AlgoBrainAi-New-Website/src/components/sections/Hero.astro"
+          data-astro-source-loc="358:10"
+        >
+          <line
+            x1="0"
+            y1="50"
+            x2="324"
+            y2="50"
+            style="stroke-width:2"
+            data-astro-cid-anhloy43=""
+            data-astro-source-file="D:/ALGO Projects/AlgoBrainAi-New-Website/src/components/sections/Hero.astro"
+            data-astro-source-loc="359:12"></line>
+        </svg>
+      </div>
+      <div
+        id="tenth"
+        data-node-index="8"
+        class="relative feature-hero-node col-start-1 col-span-1 row-start-6 row-span-2 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            fill="currentColor"
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#ec4899] group-hover:fill-[#ec4899]"
+            d="m13.13 22.19l-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63l6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05c.17 1.39-.02 4.25-3.3 7.53c-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93c-2.19 2.19-3.5 4.6-4.35 6.71c-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61c.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83c-.78.78-2.05.78-2.83 0m-5.66 7.07l-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76l-1.42-1.41L2 20.59zm0-2.83l4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >growing</span
+        >
+      </div>
+    </div>
+
+    <!-- end -->
+    <div
+      class="max-w-fit mt-36 md:mt-0 relative z-10 mx-auto h-full flex justify-center items-center text-center flex-col gap-8"
+    >
+      <div>
+        <div
+          class="flex flex-col relative py-2 overflow-hidden height-auto text-foreground box-border outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 rounded-large cursor-pointer transition-transform-background motion-reduce:transition-none data-[pressed=true]:scale-[0.97] tap-highlight-transparent border-transparent"
+        >
+          <div class="flex flex-col gap-2 justify-center items-center">
+            <div class="inline-flex items-center text-center">
+              <h1
+                class="tracking-tight inline font-semibold text-4xl lg:text-6xl"
+              >
+                ALGOBRAIN
+
+                <h1
+                  class="tracking-tight ms-4 inline font-semibold from-[#06B7DB] to-[#006FEE] text-5xl md:text-6xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-b"
+                >
+                  AI
+                </h1>
+              </h1>&nbsp;&nbsp;
+            </div>
+          </div><p
+            class="w-full my-2 text-lg lg:text-xl font-normal text-white text-default-500 max-w-full md:w-full text-center flex justify-center items-center"
+          >
+            Let's make AI work for you
+          </p>
+          <Button
+            as={"a"}
+            href="#contact"
+            variant="shadow"
+            className="w-fit text-center mx-auto bg-gradient-to-tr from-pink-500 to-blue-500 text-white font-medium hover:scale-105 transition-transform"
+            client:load
+          >
+            Book a free demo 🚀
+          </Button>
+        </div>
+        <span
+          aria-hidden="true"
+          class="w-px h-px block"
+          style="margin-left: 0.25rem; margin-top: 3rem;"></span>
+      </div>
+    </div>
+
+    <div
+      class="h-full hidden lg:grid w-[500px] absolute right-0 top-0 p-3 grid-cols-6 grid-rows-6 gap-3"
+    >
+      <div
+        id="eleventh"
+        data-node-index="20"
+        class="relative feature-hero-node col-start-1 col-span-1 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#5eead4] group-hover:fill-[#5eead4]"
+            d="M13 9h5.5L13 3.5zM6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5l3.74 3.74l1.42-1.41l-2.33-2.33l2.33-2.33l-1.42-1.41zm11.16 0l-3.74-3.74l-1.42 1.41l2.33 2.33l-2.33 2.33l1.42 1.41z"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >software</span
+        >
+      </div>
+      <div class="col-start-1 col-span-1 row-start-2 row-span-4 w-[80px]">
+        <div
+          data-node-index="21"
+          data-source="#eleventh"
+          data-connect="#null"
+          class="w-[2px] active connector mx-auto"
+        >
+        </div>
+      </div>
+
+      <div
+        id="eighteenth"
+        data-node-index="11"
+        class="relative feature-hero-node col-start-1 col-span-1 row-start-6 row-span-2 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            fill="currentColor"
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#ec4899] group-hover:fill-[#ec4899]"
+            d="m13.13 22.19l-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63l6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05c.17 1.39-.02 4.25-3.3 7.53c-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93c-2.19 2.19-3.5 4.6-4.35 6.71c-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61c.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83c-.78.78-2.05.78-2.83 0m-5.66 7.07l-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76l-1.42-1.41L2 20.59zm0-2.83l4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >growing</span
+        >
+      </div>
+
+      <div class="col-start-2 col-span-4 row-start-6 row-span-2 w-[80px]">
+        <svg
+          data-node-index="12"
+          data-source="#ninth"
+          data-connect="#tenth"
+          class="connector-svg active"
+          width="240px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line x1="0" y1="50" x2="250" y2="50" style="stroke-width:2"></line>
+        </svg>
+      </div>
+      <div
+        data-node-index="19"
+        id="twelveth"
+        class="relative feature-hero-node col-start-2 col-span-1 row-start-2 row-span-1 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            fill="currentColor"
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#ec4899] group-hover:fill-[#ec4899]"
+            d="m13.13 22.19l-1.63-3.83c1.57-.58 3.04-1.36 4.4-2.27zM5.64 12.5l-3.83-1.63l6.1-2.77C7 9.46 6.22 10.93 5.64 12.5M19.22 4c.28 0 .53 0 .74.05c.17 1.39-.02 4.25-3.3 7.53c-1.7 1.71-3.73 3.02-6.01 3.89l-2.15-2.1c.92-2.31 2.23-4.34 3.92-6.03C15.18 4.58 17.64 4 19.22 4m0-2c-1.98 0-4.98.69-8.22 3.93c-2.19 2.19-3.5 4.6-4.35 6.71c-.28.75-.09 1.57.46 2.13l2.13 2.12c.38.38.89.61 1.42.61c.23 0 .47-.06.7-.15A19.1 19.1 0 0 0 18.07 13c5.66-5.66 3.54-10.61 3.54-10.61S20.7 2 19.22 2m-4.68 7.46c-.78-.78-.78-2.05 0-2.83s2.05-.78 2.83 0c.77.78.78 2.05 0 2.83c-.78.78-2.05.78-2.83 0m-5.66 7.07l-1.41-1.41zM6.24 22l3.64-3.64c-.34-.09-.67-.24-.97-.45L4.83 22zM2 22h1.41l4.77-4.76l-1.42-1.41L2 20.59zm0-2.83l4.09-4.08c-.21-.3-.36-.62-.45-.97L2 17.76z"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >growing</span
+        >
+      </div>
+      <div
+        data-node-index="17"
+        id="thirteenth"
+        class="relative feature-hero-node col-start-3 col-span-1 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#6C63FF] group-hover:fill-[#6C63FF]"
+            fill="currentColor"
+            d="M19 5h-3c0-1.66-1.79-3-4-3S8 3.34 8 5H5c-.55 0-1 .45-1 1s.45 1 1 1v7a2 2 0 0 0 2 2h10c1.11 0 2-.89 2-2V7c.55 0 1-.45 1-1s-.45-1-1-1m-2 9H7V7h10zm-1.14-6c.08.32.14.65.14 1c0 2.21-1.79 4-4 4s-4-1.79-4-4c0-.35.06-.68.14-1h2.14c-.17.3-.28.63-.28 1c0 1.1.9 2 2 2s2-.9 2-2c0-.37-.11-.7-.28-1zM20 19v3H4v-3c0-.78.47-1.45 1.18-2H12c-2.72 0-5.81 1.29-6 2v1h12v-1c-.19-.71-3.28-2-6-2h6.82c.71.55 1.18 1.22 1.18 2"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >automate</span
+        >
+      </div>
+
+      <div
+        class="col-start-5 col-span-1 row-start-2 row-span-4 w-[80px] rotate-180"
+      >
+        <div
+          data-node-index="14"
+          data-source="#sixteenth"
+          data-connect="#seventeenth"
+          class="connector active w-[2px] mx-auto"
+        >
+        </div>
+      </div>
+      <div
+        id="fourteenth"
+        data-node-index="18"
+        class="relative feature-hero-node col-start-4 col-span-1 row-start-2 row-span-2 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#5eead4] group-hover:fill-[#5eead4]"
+            d="M13 9h5.5L13 3.5zM6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5l3.74 3.74l1.42-1.41l-2.33-2.33l2.33-2.33l-1.42-1.41zm11.16 0l-3.74-3.74l-1.42 1.41l2.33 2.33l-2.33 2.33l1.42 1.41z"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >software</span
+        >
+      </div>
+      <div
+        id="fifteenth"
+        data-node-index="16"
+        class="relative feature-hero-node col-start-4 col-span-1 row-start-3 row-span-2 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#6C63FF] group-hover:fill-[#6C63FF]"
+            fill="currentColor"
+            d="M12 12h7c-.53 4.11-3.28 7.78-7 8.92zH5V6.3l7-3.11M12 1L3 5v6c0 5.55 3.84 10.73 9 12c5.16-1.27 9-6.45 9-12V5z"
+          ></path></svg
+        >
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >security</span
+        >
+      </div>
+      <div
+        id="sixteenth"
+        data-node-index="15"
+        class="relative feature-hero-node col-start-5 col-span-1 row-start-1 row-span-2 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#6C63FF] group-hover:fill-[#6C63FF]"
+            fill="currentColor"
+            d="M19 5h-3c0-1.66-1.79-3-4-3S8 3.34 8 5H5c-.55 0-1 .45-1 1s.45 1 1 1v7a2 2 0 0 0 2 2h10c1.11 0 2-.89 2-2V7c.55 0 1-.45 1-1s-.45-1-1-1m-2 9H7V7h10zm-1.14-6c.08.32.14.65.14 1c0 2.21-1.79 4-4 4s-4-1.79-4-4c0-.35.06-.68.14-1h2.14c-.17.3-.28.63-.28 1c0 1.1.9 2 2 2s2-.9 2-2c0-.37-.11-.7-.28-1zM20 19v3H4v-3c0-.78.47-1.45 1.18-2H12c-2.72 0-5.81 1.29-6 2v1h12v-1c-.19-.71-3.28-2-6-2h6.82c.71.55 1.18 1.22 1.18 2"
+          ></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >bot</span
+        >
+      </div>
+      <div
+        id="seventeenth"
+        data-node-index="13"
+        class="relative feature-hero-node col-start-5 col-span-1 row-start-6 row-span-2 h-[80px] w-[80px] p-2 hover:cursor-pointer transition-all flex flex-col justify-center items-center rounded-lg group"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          ><path
+            class="fill-none dark:stroke-slate-700 stroke-slate-300 stroke-1 group-hover:stroke-none group-[.active]:stroke-none group-[.active]:fill-[#6C63FF] group-hover:fill-[#6C63FF]"
+            fill="currentColor"
+            d="M13 6v12l8.5-6M4 18l8.5-6L4 6z"></path></svg
+        >
+
+        <span
+          class="text-center text-xs transform opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-4 group-[.active]:opacity-100 group-[.active]:max-h-4 transition-all"
+          >quick</span
+        >
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  .connector {
+    height: 0px;
+  }
+
+  .connector.active {
+    animation:
+      draw 2s linear forwards,
+      changeColor 2s linear forwards;
+  }
+
+  .connector-svg.active {
+    stroke-dasharray: 450;
+    stroke-dashoffset: 450;
+    animation:
+      drawSvg 2s linear forwards,
+      changeColorSVG 2s linear forwards;
+  }
+
+  @keyframes drawSvg {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes draw {
+    to {
+      height: 100%;
+    }
+  }
+
+  @keyframes changeColor {
+    0% {
+      background-color: #6ee7b7; /* Adjust color as needed */
+    }
+    50% {
+      background-color: #06b6d4; /* Adjust color as needed */
+    }
+    100% {
+      background-color: #a78bfa;
+    }
+  }
+
+  @keyframes changeColorSVG {
+    0% {
+      stroke: #6ee7b7; /* Adjust color as needed */
+    }
+    50% {
+      stroke: #06b6d4; /* Adjust color as needed */
+    }
+    100% {
+      stroke: #a78bfa;
+    }
+  }
+
+  @media (min-width: 1028px) {
+    .hero-container::before {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      top: 0%;
+      bottom: 10%;
+      width: 150%;
+      left: -25%;
+      background: linear-gradient(83.21deg, #06b6d4 0%, #7c3aed 100%);
+      -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0.45), transparent 70%);
+      mask-image: radial-gradient(rgba(0, 0, 0, 0.45), transparent 70%);
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener("load", function () {
+    const mobileBreakpoint: number = 768; // Define your mobile breakpoint
+
+    // Check screen width
+    function checkScreenWidth(): void {
+      const screenWidth: number =
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth;
+
+      // If screen width is less than or equal to the mobile breakpoint, stop executing the script
+      if (screenWidth <= mobileBreakpoint) {
+        console.log("Screen is mobile, stopping script execution.");
+        return;
+      }
+
+      // If not mobile, continue executing the script
+      console.log("Screen is not mobile, continuing script execution.");
+      executeScript();
+    }
+
+    // Function to execute the script
+    function executeScript(): void {
+      const nodes: NodeListOf<HTMLElement> =
+        document.querySelectorAll("[data-node-index]");
+
+      // Function to add and remove active class for 1 second
+      function addAndRemoveActiveClass(
+        sourceElement: HTMLElement | null
+      ): void {
+        // Add active class to the element
+        sourceElement?.classList.add("active");
+
+        // Remove active class after 1 second
+        setTimeout(function () {
+          sourceElement?.classList.remove("active");
+        }, 3000); // 1 second
+      }
+
+      // Convert NodeList to Array and sort based on data-node-index attribute
+      const sortedNodes: HTMLElement[] = Array.from(nodes).sort((a, b) => {
+        if (
+          !a.getAttribute("data-node-index") ||
+          !b.getAttribute("data-node-index")
+        ) {
+          throw new Error("Element does not contain data-node-index attribute");
+        }
+        return (
+          parseInt(a.getAttribute("data-node-index") as string) -
+          parseInt(b.getAttribute("data-node-index") as string)
+        );
+      });
+
+      // Function to animate elements sequentially
+      function animateElements(elements: HTMLElement[]): void {
+        let index: number = 0;
+
+        function next(): void {
+          if (index < elements.length) {
+            addAndRemoveActiveClass(elements[index]);
+            index++;
+            setTimeout(next, 3000); // Wait for 1 second before animating the next element
+          }
+        }
+        next(); // Start the animation
+      }
+
+      // Function to start the animation loop
+      function startAnimation(): void {
+        // Arbitrary indices to animate
+        const arbitraryIndices = [1, 3, 2, 5, 4];
+
+        // Calculate number of elements in each array
+        const arrayLength = Math.ceil(sortedNodes.length / 5);
+
+        // Dynamically create arrays
+        const arrays: HTMLElement[][] = [];
+        for (let i = 0; i < 5; i++) {
+          const startIndex = i * arrayLength;
+          const endIndex = Math.min(
+            startIndex + arrayLength,
+            sortedNodes.length
+          );
+          arrays.push(sortedNodes.slice(startIndex, endIndex));
+        }
+
+        // Animate each array based on arbitrary indices
+        arbitraryIndices.forEach((index) => {
+          if (index <= arrays.length) {
+            animateElements(arrays[index - 1]);
+          } else {
+            console.error("Index out of range:", index);
+          }
+        });
+        // Call the startAnimation function again after 4 seconds for infinite oscillation
+        setInterval(() => {
+          arbitraryIndices.forEach((index) => {
+            if (index <= arrays.length) {
+              animateElements(arrays[index - 1]);
+            } else {
+              console.error("Index out of range:", index);
+            }
+          });
+        }, 4000);
+      }
+
+      // Start the animation loop
+      startAnimation();
+
+      // Immediately remove the "active" class from connectors after 3 seconds
+      setTimeout(() => {
+        document
+          .querySelectorAll(".connector, .connector-svg")
+          .forEach((element) => {
+            element.classList.remove("active");
+          });
+      }, 3000);
+    }
+
+    // Initial check on page load
+    checkScreenWidth();
+  });
+</script>

@@ -1,0 +1,40 @@
+---
+import { HoverEffect } from "../ui/cards-hover-effect";
+
+const testimonials = [
+{
+    image: "/src/assets/profile.png",
+    title: "Akshar Tours & Travels",
+    user:"Dheeru Bhai",
+    description: "Switching to digital infrastructure was a daunting task for us, but ALGOBRAIN AI made it effortless. Their expertise and dedication in providing digital solutions have truly revolutionized our business. Now, we can confidently say that our journey towards digital transformation has been smooth and successful, all thanks to ALGOBRAIN AI.",
+    rating: 5, 
+  },{
+    image: "/src/assets/profile.png",
+    title: "Vibrant Campus",
+    user:"Parth Gondaliya",
+    description: "ALGOBRAIN AI played a pivotal role in developing our WhatsApp Business chatbot, significantly enhancing our communication with students and parents. Their innovative solutions have streamlined the handling of inquiries, making the process both efficient and effective.",
+    rating: 5, 
+  },{
+    image: "/src/assets/profile.png",
+    title: "Kumbhat Advisors",
+    user:"Maulik Desai",
+    description: "ALGOBRAIN AI developed a robust web application tailored to our company's needs, significantly improving our operational efficiency and architectural framework. Their exceptional service has made our workflow more streamlined and effective.",
+    rating: 5, 
+  },{
+    image: "/src/assets/profile.png",
+    title: "SHV School",
+    user:"Dinesh Gondaliya",
+    description: "ALGOBRAIN AI has been instrumental in the development of our website chatbot, which seamlessly handles all inquiries and provides valuable guidance to our clients and parents. Their professional approach and innovative solutions have greatly enhanced our user experience.",
+    rating: 5, 
+  },{
+    image: "/src/assets/profile.png",
+    title: "Studio7",
+    user:"Ravi Vyash",
+    description: "ALGOBRAIN AI's expertise in creating a WhatsApp chatbot has transformed our business operations. The chatbot efficiently manages all inquiries and has played a key role in driving our business growth. We highly appreciate their dedication and innovative solutions.",
+    rating: 5, 
+  },];
+---
+
+<div class="">
+  <HoverEffect items={testimonials} client:visible />
+</div>

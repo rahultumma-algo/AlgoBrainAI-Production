@@ -1,0 +1,39 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import MyImage from "../MyImage.astro";
+import { extractImageExtension } from "@/lib/utils";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*.{jpeg,jpg,png,gif,avif,jpg,svg,webp}"
+);
+
+interface Props {
+  media: string; // Accepts either an image URL or a video URL
+  type: "image" | "video"; // Indicates the type of media: 'image' or 'video'
+}
+
+const { media, type } = Astro.props;
+---
+
+<div class="rounded-lg h-[250px] lg:h-[350px]">
+  {
+    type === "image" ? (
+      <MyImage
+        class="h-full w-full object-cover rounded-lg"
+        src={media}
+        alt={media}
+        type={extractImageExtension(media)}
+        loading="lazy"
+      />
+    ) : (
+      <iframe
+        class="h-full w-full rounded-lg"
+        src={media}
+        title={media}
+        frame-border="0"
+        allow-full-screen
+      />
+    )
+  }
+</div>

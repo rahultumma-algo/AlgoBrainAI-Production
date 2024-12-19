@@ -1,0 +1,215 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import BlogContent from "@/components/sections/BlogContent.tsx";
+import data from "@/content/blogData.json";
+import type { BlogData } from "@/lib/types";
+import { Button } from "@nextui-org/button";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import BlogImage from "@/components/Blog/BlogMisc.astro";
+import BlogTable from "@/components/Blog/BlogTable";
+import BlogTOC from "@/components/Blog/BlogTOC";
+import BreadCrumbs from "@/components/BreadCrumbs.astro";
+import MyImage from "@/components/MyImage.astro";
+import { extractImageExtension } from "@/lib/utils";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*.{jpeg,jpg,png,gif,avif,jpg,svg,webp}"
+);
+
+export function getStaticPaths() {
+  const blogs: BlogData[] = data.blogs as unknown as BlogData[];
+
+  const paths = blogs.map((blog) => ({
+    params: { blog: blog.blog_info.title.trim().replace(/\s+/g, "-") },
+    props: blog,
+  }));
+
+  return paths;
+}
+
+const blog = Astro.props;
+---
+
+<Layout
+  hasBrowse={false}
+  browseItems={[]}
+  title={`ALGOBRAIN AI | Blogs - ${blog.blog_info.title}`}
+  description={blog.blog_info.subtitle}
+  hasHero={false}
+>
+  <BreadCrumbs />
+  <div class="flex gap-2 flex-col md:flex-row w-full md:w-[95%] mx-auto">
+    <div
+      class="animated-div-left flex rounded-md flex-col gap-3 flex-1 flex-grow justify-center items-start p-6 md:p-16 bg-purple-300"
+    >
+      <h2
+        class="text-2xl relative md:text-5xl lg:text-6xl font-bold text-slate-800 w-full"
+      >
+        <span id="typing-effect"> </span>
+      </h2>
+      <p class="text-slate-800">
+        {blog.blog_info.subtitle}
+      </p>
+    </div>
+    <div class="animated-div-right flex-1 flex-grow">
+      <MyImage
+        class="object-cover w-full h-full rounded-md"
+        src={blog.blog_info.heroImage}
+        alt={blog.blog_info.title}
+        type={extractImageExtension(blog.blog_info.heroImage)}
+      />
+    </div>
+  </div>
+
+  <BlogContent client:load>
+    <div slot="content" class="md:grid gap-5 grid-cols-[auto_250px]">
+      <div>
+        <div class="my-3">
+          <p>
+            Article by: {blog.blog_info.author} ({blog.blog_info.authorDesignation})
+          </p>
+          <p>Published at: {blog.blog_info.published_date}</p>
+        </div>
+        <div class="flex flex-col gap-32">
+          {
+            blog.content.map((section) => (
+              <div id={section.section_title}>
+                <h2 class="text-4xl font-semibold mb-4">
+                  {section.section_title}
+                </h2>
+                <div class="flex flex-col gap-4">
+                  {section.content.map((contentItem) => {
+                    switch (contentItem.content_type) {
+                      case "text":
+                        return <p>{contentItem.content_details}</p>;
+                      case "image":
+                        return (
+                          <BlogImage
+                            media={contentItem.content_details.image_url}
+                            type="image"
+                          />
+                        );
+                      case "video":
+                        return (
+                          <BlogImage
+                            media={contentItem.content_details.video_url}
+                            type="video"
+                          />
+                        );
+                      case "table":
+                        return (
+                          <BlogTable
+                            tableData={contentItem.content_details.table_data}
+                          />
+                        );
+                      case "list":
+                        return (
+                          <div class="flex flex-col gap-4">
+                            <h3>{contentItem.content_details.title}</h3>
+                            <ul>
+                              {contentItem.content_details.items.map((item) => (
+                                <li>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        );
+                      default:
+                        return null;
+                    }
+                  })}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <div class="flex flex-wrap md:flex-nowrap gap-2 mt-6">
+          {
+            blog.blog_info.tags.map((tag) => (
+              <Button
+                key={tag}
+                variant="bordered"
+                size="sm"
+                startContent="#"
+                radius="lg"
+              >
+                {tag}
+              </Button>
+            ))
+          }
+        </div>
+      </div>
+      <div class="hidden md:block h-fit sticky top-0 right-0 rounded-md p-4">
+        {blog.content && <BlogTOC contents={blog.content} />}
+      </div>
+    </div>
+
+    <div slot="resources" class="flex flex-col gap-8 p-6">
+      {
+        blog.resources.map((resource) => (
+          <div class="flex flex-col gap-3 p-6 rounded-xl border-2 border-gray-200/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5 bg-gradient-to-br from-transparent to-gray-50/30">
+            <span class="font-semibold text-lg bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              {resource.name}
+            </span>
+            <a
+              aria-label={resource.name}
+              title={resource.name}
+              class="text-gray-600 hover:text-primary transition-colors duration-300 break-all relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-px after:bg-primary/30 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300"
+              href={resource.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {resource.href}
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </BlogContent>
+</Layout>
+
+<style>
+  .animated-div-left {
+    animation: moveInLeft 1s ease-out forwards;
+  }
+
+  .animated-div-right {
+    animation: moveInRight 1s ease-out forwards;
+  }
+
+  #typing-effect {
+    overflow: hidden;
+    animation: typing 3s steps(30, end);
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes moveInLeft {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
+
+  @keyframes moveInRight {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+  }
+</style>
+
+<script define:vars={{ blogTitle: blog.blog_info.title }}>
+  let i = 0;
+  const speed = 100;
+
+  function typeWriter() {
+    const typingEffect = document.getElementById("typing-effect");
+    if (i < blogTitle.length) {
+      typingEffect.innerHTML += blogTitle.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  typeWriter();
+</script>
